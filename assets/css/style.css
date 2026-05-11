@@ -407,6 +407,29 @@ p {
   background: rgba(240, 244, 248, 0.94);
 }
 
+/* Light mode — make all three header controls (RTL, theme, login) borders visible */
+[data-theme="light"] .icon-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: #94a3b8;
+  color: #1e293b;
+}
+[data-theme="light"] .icon-btn:hover {
+  border-color: var(--c-cyan-dim);
+  background: rgba(0, 150, 180, 0.08);
+  color: var(--c-cyan-dim);
+}
+[data-theme="light"] .btn-outline {
+  border-color: #64748b;
+  color: #0369a1;
+}
+[data-theme="light"] .btn-outline:hover {
+  border-color: var(--c-cyan-dim);
+  background: rgba(0, 150, 180, 0.06);
+}
+[data-theme="light"] .mobile-nav {
+  background: rgba(240, 244, 248, 0.98);
+}
+
 #header.scrolled {
   box-shadow: 0 2px 32px rgba(0, 0, 0, 0.5);
   border-bottom-color: var(--c-cyan);
@@ -453,7 +476,7 @@ p {
 
 .logo-name {
   font-family: var(--f-head);
-  font-size: 1rem;
+  font-size: 1.18rem;
   font-weight: 800;
   color: var(--c-text);
   letter-spacing: -0.02em;
@@ -2356,7 +2379,7 @@ textarea.form-ctrl {
   }
 
   .header-logo .logo-name {
-    font-size: 0.85rem !important;
+    font-size: 1.1rem !important;
   }
 
   .header-nav {
@@ -2377,14 +2400,26 @@ textarea.form-ctrl {
 
   .header-controls {
     flex-shrink: 0 !important;
-    gap: 4px !important;
+    gap: 6px !important;
+    align-items: center !important;
+  }
+
+  /* Lock all three controls (RTL, Theme, Login) to identical 38px height */
+  .header-controls .icon-btn {
+    width: 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    flex-shrink: 0 !important;
   }
 
   .header-controls .btn {
-    padding: 6px 12px !important;
-    font-size: 0.72rem !important;
-    min-height: 32px !important;
+    padding: 6px 14px !important;
+    font-size: 0.75rem !important;
+    min-height: 38px !important;
+    height: 38px !important;
     white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 }
 
@@ -2394,6 +2429,10 @@ textarea.form-ctrl {
   /* Header stays fully expanded like 1440px now! */
   .g3 {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-banner {
+    height: 210px !important;
   }
 
 
@@ -2477,6 +2516,10 @@ textarea.form-ctrl {
   .g3,
   .g4 {
     grid-template-columns: 1fr;
+  }
+
+  .card-banner {
+    height: 240px !important;
   }
 
   .hero-visual {
@@ -2727,6 +2770,150 @@ textarea.form-ctrl {
 }
 
 /* ============================================================
+   25b. RTL — EXTENDED COVERAGE
+   ============================================================ */
+
+/* Body-level text direction */
+[dir="rtl"] body {
+  text-align: right;
+}
+
+/* Paragraphs and list items */
+[dir="rtl"] p,
+[dir="rtl"] li,
+[dir="rtl"] label,
+[dir="rtl"] .form-group label {
+  text-align: right;
+}
+
+/* Section tags — reverse the decorative lines */
+[dir="rtl"] .sec-tag {
+  flex-direction: row-reverse;
+}
+
+/* Cards — icon left in RTL becomes right */
+[dir="rtl"] .card-icon {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Hero metrics row */
+[dir="rtl"] .hero-metrics {
+  flex-direction: row-reverse;
+}
+
+/* Mobile navigation drawer — RTL */
+[dir="rtl"] .mobile-nav {
+  text-align: right;
+}
+[dir="rtl"] .mobile-nav .nav-link {
+  text-align: right;
+}
+[dir="rtl"] .mobile-nav-controls {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+/* Footer links column */
+[dir="rtl"] .footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+[dir="rtl"] .footer-links a {
+  flex-direction: row-reverse;
+}
+
+/* Newsletter form */
+[dir="rtl"] .nl-form {
+  flex-direction: row-reverse;
+}
+
+/* ---- Dashboard-specific RTL ---- */
+/* Dashboard uses .sidebar and .dash-content (different from global .dash-sidebar/.dash-main) */
+[dir="rtl"] .sidebar {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid var(--c-border);
+}
+[dir="rtl"] .dash-content {
+  margin-left: 0;
+  margin-right: 240px;
+}
+[dir="rtl"] .dash-header-inner {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .dash-header-left {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .dash-header-right {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .dash-nav-link {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+[dir="rtl"] .sidebar-logo {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .stat-card {
+  text-align: right;
+}
+[dir="rtl"] .pipeline {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .rev-msg {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .rev-bubble {
+  border-radius: var(--r2) 0 var(--r2) var(--r2);
+  text-align: right;
+}
+[dir="rtl"] .rev-bubble.mod-bubble {
+  border-radius: 0 var(--r2) var(--r2) var(--r2);
+}
+[dir="rtl"] .asset-row {
+  flex-direction: row-reverse;
+}
+[dir="rtl"] .asset-info {
+  text-align: right;
+}
+[dir="rtl"] .user-chip {
+  flex-direction: row-reverse;
+}
+
+/* Dashboard mobile RTL */
+@media(max-width:768px) {
+  [dir="rtl"] .sidebar {
+    left: unset;
+    right: 0;
+    transform: translateX(100%);
+  }
+  [dir="rtl"] .sidebar.open {
+    transform: translateX(0);
+  }
+  [dir="rtl"] .dash-content {
+    margin-right: 0;
+  }
+}
+
+/* Auth page controls RTL — already covered, ensure consistency */
+[dir="rtl"] .auth-page-controls {
+  right: auto;
+  left: var(--s3);
+  flex-direction: row-reverse;
+}
+
+/* Timeline RTL */
+[dir="rtl"] .tl-content {
+  text-align: right;
+}
+[dir="rtl"] .tl-dur {
+  text-align: right;
+}
+
+/* ============================================================
    26. GLOBAL CARD CENTERING (Home, Home 2, Portfolio, Services, Blog)
    ============================================================ */
 /* About Me section centering and responsive stacking (HOME 2) */
@@ -2737,6 +2924,17 @@ textarea.form-ctrl {
   align-items: center !important;
 }
 
+.about-grid .about-text {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.about-grid .about-text p {
+  text-align: center !important;
+}
+
 .about-grid .sec-tag {
   justify-content: center !important;
 }
@@ -2745,8 +2943,19 @@ textarea.form-ctrl {
   text-align: center !important;
 }
 
+/* Bullets wrapper centered as a block, but each bullet row left-aligned for straight line vertical alignment */
+.about-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: center !important;
+  width: fit-content !important;
+  width: -webkit-fit-content !important;
+  max-width: 100% !important;
+}
+
 .about-grid .about-bullet {
-  justify-content: center !important;
+  justify-content: flex-start !important;
 }
 
 .about-grid .btn-group {
@@ -2757,6 +2966,24 @@ textarea.form-ctrl {
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: var(--s5) !important;
+  }
+}
+
+@media(max-width: 480px) {
+  .about-bullets {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    align-self: center !important;
+  }
+  .about-grid .about-bullet {
+    justify-content: flex-start !important;
+  }
+}
+
+@media(max-width: 360px) {
+  .about-bullets {
+    max-width: 260px !important;
   }
 }
 
@@ -2792,11 +3019,41 @@ textarea.form-ctrl {
 }
 
 .price-card .price-features {
-  align-items: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  max-width: 280px !important;
+  margin: 0 auto !important;
+  padding: 0 var(--s2) !important;
 }
 
 .price-card .price-features li {
-  justify-content: center !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+/* SVG Wireframes and Topology Diagrams display optimization for all browsers and themes */
+svg [stroke="var(--c-cyan)"] { stroke: var(--c-cyan) !important; }
+svg [stroke="var(--c-violet)"] { stroke: var(--c-violet) !important; }
+svg [stroke="var(--c-green)"] { stroke: var(--c-green) !important; }
+svg [stroke="var(--c-amber)"] { stroke: var(--c-amber) !important; }
+
+svg [fill="var(--c-cyan)"] { fill: var(--c-cyan) !important; }
+svg [fill="var(--c-violet)"] { fill: var(--c-violet) !important; }
+svg [fill="var(--c-green)"] { fill: var(--c-green) !important; }
+svg [fill="var(--c-amber)"] { fill: var(--c-amber) !important; }
+
+.work-placeholder svg {
+  opacity: 0.65 !important;
+  transition: opacity .3s, transform .3s;
+}
+
+.work-card:hover .work-placeholder svg {
+  opacity: 0.95 !important;
+  transform: scale(1.05);
+}
+
+.work-placeholder svg * {
+  stroke-width: 1.25px !important;
 }
 
 /* Optional add-on card centering (SERVICES) */

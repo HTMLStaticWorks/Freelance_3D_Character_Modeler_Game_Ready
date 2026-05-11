@@ -12,7 +12,13 @@
     body{overflow-x:hidden;}
     /* Dashboard Header — theme-aware */
     .dash-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--header-h);background:var(--c-bg);backdrop-filter:blur(16px);border-bottom:1px solid var(--c-border);display:flex;align-items:center;transition:background .25s ease;}
-    .dash-header-inner{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 var(--s4);}
+    .dash-header-inner{display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 var(--s4);position:relative;}
+    .dash-header-title-container{display:none;}
+    @media(min-width:1024px){
+      .dash-header-title-container{display:block;position:absolute;left:50%;transform:translateX(-50%);text-align:center;pointer-events:none;}
+      .dash-header-title{font-family:var(--f-ui);font-size:.88rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c-text);margin:0;}
+      .dash-header-title span{color:var(--c-cyan);text-shadow:var(--glow-cyan);}
+    }
     .dash-header-left{display:flex;align-items:center;gap:var(--s3);}
     .dash-header-right{display:flex;align-items:center;gap:var(--s2);}
     .studio-badge{background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--c-cyan);padding:4px 14px;border-radius:var(--r1);font-family:var(--f-ui);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
@@ -23,6 +29,57 @@
     .user-chip:hover{border-color:var(--c-cyan);}
     .user-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--c-cyan),var(--c-violet));display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-size:.7rem;font-weight:800;color:#080C14;}
     .user-name{font-family:var(--f-ui);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;}
+
+    /* Button Hover and Contrast Enhancements */
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--c-border);
+      color: var(--c-text2);
+    }
+    .btn-ghost:hover {
+      background: rgba(157, 80, 255, 0.08);
+      border-color: var(--c-violet);
+      color: var(--c-text);
+      box-shadow: 0 0 15px rgba(157, 80, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    [data-theme="light"] .btn-ghost {
+      background: transparent;
+      border-color: #cbd5e1;
+      color: #334155;
+    }
+    [data-theme="light"] .btn-ghost:hover {
+      background: rgba(123, 62, 255, 0.08);
+      border-color: var(--c-violet2);
+      color: var(--c-violet2);
+      box-shadow: 0 0 15px rgba(123, 62, 255, 0.15);
+    }
+    [data-theme="light"] .btn-cyan {
+      background: #00a4ba;
+      border-color: #00a4ba;
+      color: #ffffff;
+    }
+    [data-theme="light"] .btn-cyan:hover {
+      background: #008fa0;
+      border-color: #008fa0;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 164, 186, 0.25);
+    }
+
+    /* Tab Button Contrast Fixes in Light Theme */
+    [data-theme="light"] .d-tab:hover {
+      color: var(--c-cyan-dim);
+    }
+    [data-theme="light"] .d-tab.active {
+      color: var(--c-cyan-dim);
+      border-bottom-color: var(--c-cyan-dim);
+    }
+    [data-theme="light"] .dash-nav-link:hover,
+    [data-theme="light"] .dash-nav-link.active {
+      color: var(--c-cyan-dim);
+      background: rgba(0, 143, 160, 0.06);
+    }
+
     /* Sidebar hamburger toggle */
     .dash-hamburger{display:none;width:38px;height:38px;border-radius:var(--r1);background:transparent;border:1px solid var(--c-border);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:0;transition:var(--transition);}
     .dash-hamburger span{display:block;width:18px;height:2px;background:var(--c-text);border-radius:2px;transition:var(--transition);}
@@ -135,8 +192,11 @@
       <button class="dash-hamburger" id="dash-hamburger" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
       <a href="../index.html" class="header-logo" aria-label="Modeler Game Home">
         <div class="logo-mark" style="width:36px;height:36px;font-size:.9rem">MG</div>
-        <div class="logo-text-wrap"><span class="logo-name" style="font-size:.9rem">Modeler Game</span></div>
+        <div class="logo-text-wrap"><span class="logo-name" style="font-size:1.05rem">Modeler Game</span></div>
       </a>
+    </div>
+    <div class="dash-header-title-container">
+      <h2 class="dash-header-title">Dashboard — <span id="dash-active-title">Overview</span></h2>
     </div>
     <div class="dash-header-right">
       <button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button>
@@ -164,7 +224,7 @@
   <a href="#" data-section="downloads" class="dash-nav-link"><i class="ri-download-cloud-2-line"></i> Downloads</a>
   <div class="dash-nav-label" style="margin-top:var(--s3)">Account</div>
   <a href="#" data-section="settings" class="dash-nav-link"><i class="ri-settings-3-line"></i> Settings</a>
-  <a href="#" data-section="invoices" class="dash-nav-link"><i class="ri-receipt-line"></i> Invoices</a>
+  <a href="#" data-section="invoices" class="dash-nav-link"><i class="ri-mail-line"></i> Invoices</a>
   <a href="index.html" class="dash-nav-link" style="margin-top:var(--s3)"><i class="ri-logout-box-r-line"></i> Sign Out</a>
 </nav>
 
@@ -229,10 +289,7 @@
         <h4 style="margin-bottom:var(--s2);font-size:.95rem">Technical Brief</h4>
         <form id="dash-upload-form" data-v novalidate>
           <div class="form-group"><label for="du-proj">Project Name</label><input type="text" id="du-proj" class="form-ctrl" placeholder="Spec-Ops Soldier v2"/></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s1)">
-            <div class="form-group"><label for="du-engine">Engine</label><select id="du-engine" class="form-ctrl"><option>Unreal Engine 5</option><option>Unity</option><option>Godot</option><option>Other</option></select></div>
-            <div class="form-group"><label for="du-poly">Poly Budget</label><select id="du-poly" class="form-ctrl"><option>Mobile (&lt;5K)</option><option>Indie (5K–10K)</option><option selected>AAA (10K–25K)</option><option>Cinematic (25K+)</option></select></div>
-          </div>
+          
           <div class="form-group"><label for="du-notes">Notes for Modeler</label><textarea id="du-notes" class="form-ctrl" placeholder="Special texture requirements, rig hierarchy, LOD count..." style="min-height:90px"></textarea></div>
           <button type="submit" class="btn btn-cyan btn-full btn-sm"><i class="ri-send-plane-2-line"></i> Submit to Modeler</button>
         </form>
@@ -246,7 +303,6 @@
     <div class="d-tabs" role="tablist" data-tab-group="review-tabs">
       <button class="d-tab active" data-tab="wf" role="tab">Wireframes (1)</button>
       <button class="d-tab" data-tab="tex" role="tab">Textures (1)</button>
-      <button class="d-tab" data-tab="rig" role="tab">Rigging (0)</button>
     </div>
     <!-- Wireframe panel -->
     <div class="d-panel active" id="rev-wf" data-panel="wf">
@@ -258,13 +314,13 @@
         <!-- Wireframe visual -->
         <div class="dash-review-imgs" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--s2);margin-bottom:var(--s4)">
           <div style="background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--r2);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px; overflow: hidden;">
-            <img src="../character_modeling_3d_1778327631668.png" alt="Front Wireframe" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://img.freepik.com/premium-photo/black-shade-anatomy-blue-wireframe-face-front-view-dark-background_48049-5.jpg" alt="Front Wireframe" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
           <div style="background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--r2);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px; overflow: hidden;">
-            <img src="../character_rigging_skeleton_1778327906873.png" alt="Side Wireframe" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://previews.123rf.com/images/koya79/koya791305/koya79130500147/19776128-human-head-3d-wireframe.jpg" alt="Side Wireframe" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
           <div style="background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--r2);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px; overflow: hidden;">
-            <img src="../portfolio_1_soldier_1778328603120.png" alt="3/4 View Wireframe" style="width: 100%; height: 100%; object-fit: cover;">
+            <img src="https://canada1.discourse-cdn.com/flex035/uploads/threejs/original/2X/f/f4a3f2c4d6922e41a9d8a135b0aecc04c5978ebc.png" alt="3/4 View Wireframe" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
         </div>
         <div style="background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--r2);padding:var(--s3);margin-bottom:var(--s3)">
@@ -275,14 +331,16 @@
             <div><div style="font-family:var(--f-ui);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-text3)">Budget Used</div><div style="font-family:var(--f-head);font-size:1.2rem;font-weight:800;color:var(--c-green)">88%</div></div>
           </div>
         </div>
-        <div style="display:flex;gap:var(--s2);flex-wrap:wrap">
+        <div style="display:flex;gap:var(--s2);flex-wrap:wrap;justify-content:center;">
           <button class="btn btn-cyan" data-approve><i class="ri-checkbox-circle-line"></i> Approve Wireframe</button>
           <button class="btn btn-ghost" onclick="document.getElementById('rev-wf-notes').style.display=document.getElementById('rev-wf-notes').style.display==='none'?'block':'none'"><i class="ri-edit-line"></i> Request Revision</button>
           <a href="#" class="btn btn-ghost" download><i class="ri-download-2-line"></i> Download OBJ Preview</a>
         </div>
         <div id="rev-wf-notes" style="display:none;margin-top:var(--s2)">
-          <textarea class="form-ctrl" placeholder="Describe the changes needed..." style="min-height:80px"></textarea>
-          <button class="btn btn-outline btn-sm" style="margin-top:8px"><i class="ri-send-plane-2-line"></i> Send Revision Notes</button>
+          <textarea class="form-ctrl" placeholder="Describe the changes needed..." style="min-height:80px;margin-bottom:8px;"></textarea>
+          <div style="display:flex;justify-content:center;">
+            <button class="btn btn-outline btn-sm"><i class="ri-send-plane-2-line"></i> Send Revision Notes</button>
+          </div>
         </div>
       </div>
     </div>
@@ -300,20 +358,14 @@
           <div style="text-align:center"><div style="background:linear-gradient(135deg,#0A0A0A,#D4A017);border:1px solid var(--c-border);border-radius:var(--r1);aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin-bottom:4px"><i class="ri-flashlight-line" style="font-size:1.3rem;color:rgba(255,255,255,.5)"></i></div><span style="font-family:var(--f-ui);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-text3)">Metallic</span></div>
           <div style="text-align:center"><div style="background:linear-gradient(135deg,#2D1B5A,#8B5CF6);border:1px solid var(--c-border);border-radius:var(--r1);aspect-ratio:1;display:flex;align-items:center;justify-content:center;margin-bottom:4px"><i class="ri-sun-foggy-line" style="font-size:1.3rem;color:rgba(255,255,255,.5)"></i></div><span style="font-family:var(--f-ui);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-text3)">Emissive</span></div>
         </div>
-        <div style="display:flex;gap:var(--s2);flex-wrap:wrap">
+        <div style="display:flex;gap:var(--s2);flex-wrap:wrap;justify-content:center;">
           <button class="btn btn-cyan" data-approve><i class="ri-checkbox-circle-line"></i> Approve Textures</button>
           <button class="btn btn-ghost"><i class="ri-edit-line"></i> Request Revision</button>
         </div>
       </div>
     </div>
     <!-- Rigging panel -->
-    <div class="d-panel" id="rev-rig" data-panel="rig">
-      <div style="text-align:center;padding:var(--s8);background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3)">
-        <i class="ri-settings-4-line" style="font-size:3rem;color:var(--c-text3);opacity:.4;display:block;margin-bottom:var(--s2)"></i>
-        <p style="font-family:var(--f-ui);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-text3)">No rigging assets ready yet</p>
-        <p style="font-size:.82rem;color:var(--c-text3);margin-top:4px">Rigging will be uploaded after wireframe approval.</p>
-      </div>
-    </div>
+    
   </div>
 
   <!-- Revision Thread -->
@@ -335,7 +387,6 @@
     <div class="dash-section-title">Downloads</div>
     <div class="asset-row"><div class="asset-thumb">🎮</div><div class="asset-info"><div class="asset-name">Dark Elf Mage — Final Package v1.0</div><div class="asset-meta">FBX + GLTF + Textures (4K) · 234 MB · Dec 2, 2024</div><div class="progress-bar" style="margin-top:6px;width:200px"><div class="progress-fill" style="width:100%"></div></div></div><div class="asset-status"><span class="spec-pill pill-green">Delivered</span></div><button class="btn btn-cyan btn-sm" data-download style="margin-left:var(--s2)"><i class="ri-download-cloud-2-line"></i> Download</button></div>
     <div class="asset-row"><div class="asset-thumb">⚔️</div><div class="asset-info"><div class="asset-name">Cyber Assassin — LOD Package</div><div class="asset-meta">FBX · LOD0–LOD2 · 89 MB · Nov 28, 2024</div><div class="progress-bar" style="margin-top:6px;width:200px"><div class="progress-fill" style="width:100%"></div></div></div><div class="asset-status"><span class="spec-pill pill-green">Delivered</span></div><button class="btn btn-cyan btn-sm" data-download style="margin-left:var(--s2)"><i class="ri-download-cloud-2-line"></i> Download</button></div>
-    <div class="asset-row" style="opacity:.6"><div class="asset-thumb">🤖</div><div class="asset-info"><div class="asset-name">Spec-Ops Soldier — In Progress</div><div class="asset-meta">Estimated delivery: Dec 14, 2024</div><div class="progress-bar" style="margin-top:6px;width:200px"><div class="progress-fill" style="width:45%"></div></div></div><div class="asset-status"><span class="spec-pill pill-amber">In Progress</span></div><button class="btn btn-ghost btn-sm" disabled style="margin-left:var(--s2);opacity:.4"><i class="ri-lock-line"></i> Locked</button></div>
   </div>
 
   <!-- Settings -->
@@ -390,6 +441,18 @@
   // Sidebar section switching
   const sidebarLinks = document.querySelectorAll('.dash-nav-link[data-section]');
   const dashSections = document.querySelectorAll('.dash-section');
+  const dashActiveTitle = document.getElementById('dash-active-title');
+  const sectionTitles = {
+    'overview': 'Overview',
+    'projects': 'My Projects',
+    'upload': 'Upload Concepts',
+    'review': 'Review Assets',
+    'revisions': 'Revisions',
+    'downloads': 'Downloads',
+    'settings': 'Account Settings',
+    'invoices': 'Invoices'
+  };
+
   sidebarLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -398,7 +461,13 @@
       this.classList.add('active');
       dashSections.forEach(s => s.classList.remove('active'));
       const section = document.getElementById(target);
-      if (section) { section.classList.add('active'); window.scrollTo({top: 0, behavior: 'smooth'}); }
+      if (section) {
+        section.classList.add('active');
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        if (dashActiveTitle) {
+          dashActiveTitle.textContent = sectionTitles[target] || 'Overview';
+        }
+      }
       // Auto-close sidebar on mobile
       if (window.innerWidth <= 768) closeSidebar();
     });

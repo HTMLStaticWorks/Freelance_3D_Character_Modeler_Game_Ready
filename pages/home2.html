@@ -257,6 +257,25 @@
       .model-grid-vis {
         grid-template-columns: 1fr 1fr;
       }
+
+      /* Texture cards: 1 column on mobile */
+      #tex-cards-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media(max-width:1024px) and (min-width:769px) {
+      /* Texture cards: 2 columns at tablet */
+      #tex-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      /* Center the 3rd card across the two columns */
+      #tex-cards-grid > div:nth-child(3) {
+        grid-column: span 2 !important;
+        justify-self: center !important;
+        width: 100% !important;
+        max-width: 480px !important;
+      }
     }
   </style>
 </head>
@@ -305,7 +324,7 @@
     </div>
   </div>
 
-  <main>
+  <main class="page-content">
     <!-- S1: HERO -->
     <section class="hero" id="home" aria-label="Hero section">
       <div class="hero-grid" aria-hidden="true"></div>
@@ -358,38 +377,14 @@
               <div class="num" data-count="40" data-suffix="+">0+</div>
               <div class="lbl">Studio Clients</div>
             </div>
-            <div class="hero-metric">
-              <div class="num" data-count="28" data-suffix="d">0d</div>
-              <div class="lbl">Avg Delivery</div>
-            </div>
+            
           </div>
         </div>
       </div>
     </section>
 
     <!-- S2: CLIENTS MARQUEE + TECH STACK -->
-    <div class="marquee-wrap" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-item"><i class="ri-gamepad-line"></i>Unity Engine</span>
-        <span class="marquee-item"><i class="ri-gamepad-line"></i>Unreal Engine 5</span>
-        <span class="marquee-item"><i class="ri-gamepad-line"></i>Godot 4</span>
-        <span class="marquee-item"><i class="ri-box-3-line"></i>Blender 4.0</span>
-        <span class="marquee-item"><i class="ri-box-3-line"></i>Maya 2024</span>
-        <span class="marquee-item"><i class="ri-box-3-line"></i>ZBrush 2024</span>
-        <span class="marquee-item"><i class="ri-image-2-line"></i>Substance 3D Painter</span>
-        <span class="marquee-item"><i class="ri-image-2-line"></i>Marmoset Toolbag</span>
-        <span class="marquee-item"><i class="ri-share-box-line"></i>FBX / GLTF / USD</span>
-        <span class="marquee-item"><i class="ri-gamepad-line"></i>Unity Engine</span>
-        <span class="marquee-item"><i class="ri-gamepad-line"></i>Unreal Engine 5</span>
-        <span class="marquee-item"><i class="ri-gamepad-line"></i>Godot 4</span>
-        <span class="marquee-item"><i class="ri-box-3-line"></i>Blender 4.0</span>
-        <span class="marquee-item"><i class="ri-box-3-line"></i>Maya 2024</span>
-        <span class="marquee-item"><i class="ri-box-3-line"></i>ZBrush 2024</span>
-        <span class="marquee-item"><i class="ri-image-2-line"></i>Substance 3D Painter</span>
-        <span class="marquee-item"><i class="ri-image-2-line"></i>Marmoset Toolbag</span>
-        <span class="marquee-item"><i class="ri-share-box-line"></i>FBX / GLTF / USD</span>
-      </div>
-    </div>
+    
 
     <!-- S3: TEXTURE SHOWCASE -->
     <section class="section" id="textures" aria-labelledby="tex-heading">
@@ -421,21 +416,42 @@
                 class="ri-sun-foggy-line" style="color:#6B7280"></i><span style="color:rgba(255,255,255,.7)">AO</span>
             </div>
           </div>
-          <div class="grid g3" style="gap:var(--s3)">
-            <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-              <div class="ui-label" style="color:var(--c-cyan);margin-bottom:var(--s2);justify-content:center;">Albedo / Base Color</div>
-              <p style="font-size:.875rem">Hand-painted and PBR-accurate base color maps with micro-detail overlays for
-                skin pores, fabric weave and surface variation.</p>
+          <div class="grid" style="gap:var(--s3);grid-template-columns:repeat(3,1fr);" id="tex-cards-grid">
+            <!-- Albedo card -->
+            <div style="background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--r2);overflow:hidden;transition:var(--transition)" onmouseover="this.style.borderColor='var(--c-cyan)'" onmouseout="this.style.borderColor='var(--c-border)'">
+              <div style="aspect-ratio:16/9;overflow:hidden;position:relative">
+                <img src="https://cdn.prod.website-files.com/62b61ea35d1d73da4d887c0d/68555069bcc48bb68aa43eac_683659f8d3b966198185a090-1748414336762.jpeg" alt="Albedo / Base Color Map" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,20,.8) 0%,transparent 60%)"></div>
+              </div>
+              <div style="padding:var(--s3);text-align:center">
+                <div class="ui-label" style="color:var(--c-cyan);margin-bottom:var(--s2);justify-content:center;">Albedo / Base Color</div>
+                <p style="font-size:.875rem">Hand-painted and PBR-accurate base color maps with micro-detail overlays for
+                  skin pores, fabric weave and surface variation.</p>
+              </div>
             </div>
-            <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-              <div class="ui-label" style="color:var(--c-violet);margin-bottom:var(--s2);justify-content:center;">Normal Maps</div>
-              <p style="font-size:.875rem">Baked from high-poly sculpts in Marmoset. Properly flipped for both DirectX
-                and OpenGL pipelines — you choose at delivery.</p>
+            <!-- Normal map card -->
+            <div style="background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--r2);overflow:hidden;transition:var(--transition)" onmouseover="this.style.borderColor='var(--c-violet)'" onmouseout="this.style.borderColor='var(--c-border)'">
+              <div style="aspect-ratio:16/9;overflow:hidden;position:relative">
+                <img src="https://www.codeandweb.com/static/d43b158bc1cdd2d05072d63e4dc983d1/87706/normalmaps%402x.png" alt="Normal Map" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,20,.8) 0%,transparent 60%)"></div>
+              </div>
+              <div style="padding:var(--s3);text-align:center">
+                <div class="ui-label" style="color:var(--c-violet);margin-bottom:var(--s2);justify-content:center;">Normal Maps</div>
+                <p style="font-size:.875rem">Baked from high-poly sculpts in Marmoset. Properly flipped for both DirectX
+                  and OpenGL pipelines — you choose at delivery.</p>
+              </div>
             </div>
-            <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-              <div class="ui-label" style="color:var(--c-amber);margin-bottom:var(--s2);justify-content:center;">ORM Channel Pack</div>
-              <p style="font-size:.875rem">Occlusion (R), Roughness (G), Metallic (B) packed into a single texture for
-                maximum GPU efficiency and reduced draw calls.</p>
+            <!-- ORM card -->
+            <div style="background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--r2);overflow:hidden;transition:var(--transition)" onmouseover="this.style.borderColor='var(--c-amber)'" onmouseout="this.style.borderColor='var(--c-border)'">
+              <div style="aspect-ratio:16/9;overflow:hidden;position:relative">
+                <img src="https://i.sstatic.net/6HtuCLCB.png" alt="ORM Channel Pack" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,20,.8) 0%,transparent 60%)"></div>
+              </div>
+              <div style="padding:var(--s3);text-align:center">
+                <div class="ui-label" style="color:var(--c-amber);margin-bottom:var(--s2);justify-content:center;">ORM Channel Pack</div>
+                <p style="font-size:.875rem">Occlusion (R), Roughness (G), Metallic (B) packed into a single texture for
+                  maximum GPU efficiency and reduced draw calls.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -530,9 +546,9 @@
               </tr>
               <tr>
                 <td></td>
-                <td><a href="contact.html" class="btn btn-ghost btn-sm">Get Started</a></td>
                 <td class="highlight"><a href="contact.html" class="btn btn-cyan btn-sm">Get Started</a></td>
-                <td><a href="contact.html" class="btn btn-violet btn-sm">Contact Us</a></td>
+                <td class="highlight"><a href="contact.html" class="btn btn-cyan btn-sm">Get Started</a></td>
+                <td class="highlight"><a href="contact.html" class="btn btn-cyan btn-sm">Contact Us</a></td>
               </tr>
             </tbody>
           </table>
@@ -551,16 +567,16 @@
                style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:30px 30px;">
             </div>
             <div style="position:relative;z-index:1">
-              <div
-                style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--c-cyan),var(--c-violet));display:flex;align-items:center;justify-content:center;font-family:var(--f-head);font-size:2.5rem;font-weight:800;color:#080C14;margin:0 auto var(--s4);box-shadow:var(--glow-cyan)">
-                MG</div>
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop" 
+                   alt="Alex Morgan" 
+                   style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin:0 auto var(--s4);border:3px solid var(--c-cyan);box-shadow:var(--glow-cyan)">
               <h3 style="margin-bottom:8px">Alex Morgan</h3>
               <p
                 style="color:var(--c-cyan);font-family:var(--f-ui);font-size:0.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:var(--s3)">
                 Freelance 3D Character Modeler</p>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s3)">
                 <div
-                  style="background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.12);border-radius:var(--r2);padding:var(--s2)">
+                   style="background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.12);border-radius:var(--r2);padding:var(--s2)">
                   <div style="font-family:var(--f-head);font-size:1.5rem;font-weight:800;color:var(--c-cyan)"
                     data-count="6" data-suffix=" yrs">0</div>
                   <div
@@ -577,7 +593,7 @@
                 </div>
               </div>
               <div style="display:flex;gap:8px;justify-content:center;margin-top:var(--s3)">
-                <a href="#" class="soc-btn" aria-label="ArtStation"><i class="ri-palette-line"></i></a>
+                <a href="#" class="soc-btn" aria-label="Apple"><i class="ri-apple-line"></i></a>
                 <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
                 <a href="#" class="soc-btn" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
               </div>
@@ -594,17 +610,17 @@
             <p style="margin-bottom:var(--s4)">My workflow is built around clear communication — every milestone is
               reviewable through the studio dashboard before I move to the next phase. No surprises, no rework, no
               missed deadlines.</p>
-            <div style="display:flex;flex-direction:column;gap:12px">
-              <div style="display:flex;align-items:center;gap:12px;justify-content:center" class="about-bullet"><i class="ri-checkbox-circle-fill"
+            <div class="about-bullets">
+              <div style="display:flex;align-items:center;gap:12px;justify-content:flex-start" class="about-bullet"><i class="ri-checkbox-circle-fill"
                   style="color:var(--c-cyan);font-size:1.1rem"></i><span style="font-size:.875rem">Certified Autodesk
                   Maya Professional</span></div>
-              <div style="display:flex;align-items:center;gap:12px;justify-content:center" class="about-bullet"><i class="ri-checkbox-circle-fill"
+              <div style="display:flex;align-items:center;gap:12px;justify-content:flex-start" class="about-bullet"><i class="ri-checkbox-circle-fill"
                   style="color:var(--c-cyan);font-size:1.1rem"></i><span style="font-size:.875rem">Substance 3D
                   Certified Artist</span></div>
-              <div style="display:flex;align-items:center;gap:12px;justify-content:center" class="about-bullet"><i class="ri-checkbox-circle-fill"
+              <div style="display:flex;align-items:center;gap:12px;justify-content:flex-start" class="about-bullet"><i class="ri-checkbox-circle-fill"
                   style="color:var(--c-cyan);font-size:1.1rem"></i><span style="font-size:.875rem">Former Senior Artist
                   at Apex Interactive</span></div>
-              <div style="display:flex;align-items:center;gap:12px;justify-content:center" class="about-bullet"><i class="ri-checkbox-circle-fill"
+              <div style="display:flex;align-items:center;gap:12px;justify-content:flex-start" class="about-bullet"><i class="ri-checkbox-circle-fill"
                   style="color:var(--c-cyan);font-size:1.1rem"></i><span style="font-size:.875rem">Credits: 12 shipped
                   commercial titles</span></div>
             </div>
@@ -661,9 +677,9 @@
           </div>
         </div>
         <div class="btn-group reveal">
-          <a href="dashboard.html" class="btn btn-cyan btn-lg"><i class="ri-dashboard-line"></i> Access Studio
+          <a href="dashboard.html" class="btn btn-cyan btn-lg"><i class="ri-dashboard-line"></i> Dashboard
             </a>
-          <a href="register.html" class="btn btn-cyan btn-lg"><i class="ri-user-add-line"></i> Create Studio
+          <a href="contact.html" class="btn btn-cyan btn-lg"><i class="ri-user-add-line"></i> Contact
             </a>
         </div>
       </div>

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Modeler Game | Freelance 3D Character Modeler — Game Ready Assets</title>
+  <meta name="description"
+    content="Freelance 3D character modeler specializing in game-ready assets. Poly-count optimized topology, PBR textures, rigging and LOD models for AAA and indie studios." />
+  <!-- Times New Roman is a system font, no external link needed -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script
+    type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Modeler Game","jobTitle":"Freelance 3D Character Modeler","description":"Game-ready 3D character models, topology, PBR textures and rigging for game studios.","url":"https://modelergame.com"}</script>
+</head>
+
+<body>
+
+  <!-- ============================================================ HEADER ============================================================ -->
+  <header id="header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <!-- LEFT: Logo -->
+        <a href="index.html" class="header-logo" aria-label="Modeler Game Home">
+          <div class="logo-mark">MG</div>
+          <div class="logo-text-wrap">
+            <span class="logo-name">Modeler Game</span>
+          </div>
+        </a>
+        <!-- CENTER: Desktop Nav (NO dropdowns) -->
+        <nav class="header-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="pages/home2.html" class="nav-link">Home 2</a>
+          <a href="pages/portfolio.html" class="nav-link">Portfolio</a>
+          <a href="pages/services.html" class="nav-link">Services</a>
+          <a href="pages/blog.html" class="nav-link">Blog</a>
+          <a href="pages/contact.html" class="nav-link">Contact</a>
+          <a href="pages/dashboard.html" class="nav-link">Dashboard</a>
+        </nav>
+        <!-- RIGHT: Controls -->
+        <div class="header-controls">
+          <button class="icon-btn" data-rtl-toggle aria-label="Toggle RTL"
+            style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button>
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="ri-sun-line"></i></button>
+          <a href="pages/login.html" class="btn btn-outline btn-sm">Login</a>
+        </div>
+        <!-- MOBILE: Hamburger only (logo visible, nav inside burger) -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-link active">Home</a>
+    <a href="pages/home2.html" class="nav-link">Home 2</a>
+    <a href="pages/portfolio.html" class="nav-link">Portfolio</a>
+    <a href="pages/services.html" class="nav-link">Services</a>
+    <a href="pages/blog.html" class="nav-link">Blog</a>
+    <a href="pages/contact.html" class="nav-link">Contact</a>
+    <a href="pages/dashboard.html" class="nav-link">Dashboard</a>
+    <a href="pages/login.html" class="nav-link">Login</a>
+    <div class="mobile-nav-controls">
+      <button class="icon-btn" data-rtl-toggle aria-label="Toggle RTL"
+        style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme"><i class="ri-sun-line"></i></button>
+    </div>
+  </div>
+
+  <main class="page-content">
+
+    <!-- ============================================================
+     SECTION 1: HERO
+     ============================================================ -->
+    <section class="hero" id="home" aria-label="Hero section">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <!-- Wireframe decoration -->
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <circle cx="200" cy="200" r="180" stroke="var(--c-cyan)" stroke-width="0.5" stroke-dasharray="4 6" />
+          <circle cx="200" cy="200" r="140" stroke="var(--c-violet)" stroke-width="0.5" stroke-dasharray="2 8" />
+          <circle cx="200" cy="200" r="100" stroke="var(--c-cyan)" stroke-width="0.5" stroke-dasharray="6 4" />
+          <polygon points="200,20 380,310 20,310" stroke="var(--c-cyan)" stroke-width="0.5" fill="none" opacity="0.5" />
+          <polygon points="200,380 20,90 380,90" stroke="var(--c-violet)" stroke-width="0.5" fill="none"
+            opacity="0.4" />
+          <line x1="20" y1="200" x2="380" y2="200" stroke="var(--c-cyan)" stroke-width="0.3" opacity="0.4" />
+          <line x1="200" y1="20" x2="200" y2="380" stroke="var(--c-cyan)" stroke-width="0.3" opacity="0.4" />
+          <line x1="50" y1="50" x2="350" y2="350" stroke="var(--c-violet)" stroke-width="0.3" opacity="0.3" />
+          <line x1="350" y1="50" x2="50" y2="350" stroke="var(--c-violet)" stroke-width="0.3" opacity="0.3" />
+          <circle cx="200" cy="200" r="8" fill="var(--c-cyan)" opacity="0.6" />
+          <circle cx="200" cy="20" r="4" fill="var(--c-violet)" opacity="0.5" />
+          <circle cx="380" cy="310" r="4" fill="var(--c-violet)" opacity="0.5" />
+          <circle cx="20" cy="310" r="4" fill="var(--c-violet)" opacity="0.5" />
+        </svg>
+      </div>
+
+      <!-- Hero Full-Bleed Background Image -->
+      <div class="hero-full-bg"
+        style="background-image: linear-gradient(to right, rgba(8, 12, 20, 0.92) 0%, rgba(8, 12, 20, 0.75) 45%, rgba(8, 12, 20, 0.2) 75%, rgba(8, 12, 20, 0.9) 100%), url('https://lh3.googleusercontent.com/QqFSR7OuWP1xwvAluH2Fi41P_aa_M7LQ-M4cFNbZgpWpn_LFpWLt_Z1UsYgkrmVlMHIMZF2WJUAAqp_lAEjBg-SWoji5ggeRFLVfswgcMwbi3OYZa3x4SU7OsG_S6xAJXLso83NZ');">
+      </div>
+
+      <div class="container" style="position: relative; z-index: 1;">
+        <div class="hero-content">
+          <div class="hero-eyebrow"
+            style="display: flex; align-items: center; justify-content: center; gap: 12px; font-family: var(--f-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-cyan); margin-bottom: var(--s3);">
+            <span style="width: 30px; height: 1px; background: var(--c-cyan);"></span>
+            Available for Projects · Game-Ready Assets
+          </div>
+          <h1
+            style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.15; margin-bottom: var(--s3); font-weight: 900; text-align: center;">
+            Crafting <span style="color: var(--c-cyan); text-shadow: var(--glow-cyan);">Premium</span><br>
+            3D Characters.
+          </h1>
+          <p class="hero-sub"
+            style="font-size: 1.15rem; color: var(--c-text2); margin-bottom: var(--s5); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; text-align: center;">
+            Poly-count optimized characters for AAA and indie games. PBR textures, clean topology, full rigging —
+            delivered on schedule.</p>
+          <div class="hero-cta">
+            <a href="pages/portfolio.html" class="btn btn-cyan btn-lg"><i class="ri-mail-send-line"></i>
+              Portfolio</a>
+            <a href="pages/contact.html" class="btn btn-cyan btn-lg"><i class="ri-mail-send-line"></i>
+              Start</a>
+          </div>
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <div class="num" data-count="120" data-suffix="+">0+</div>
+              <div class="lbl">Characters Shipped</div>
+            </div>
+            <div class="hero-metric">
+              <div class="num" data-count="40" data-suffix="+">0+</div>
+              <div class="lbl">Studio Clients</div>
+            </div>
+            <div class="hero-metric">
+              <div class="num" data-count="6" data-suffix=" yrs">0 yrs</div>
+              <div class="lbl">Industry Experience</div>
+            </div>
+            <div class="hero-metric">
+              <div class="num" data-count="98" data-suffix="%">0%</div>
+              <div class="lbl">On-Time Delivery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+     SECTION 2: SKILLS / SPECIALIZATIONS
+     ============================================================ -->
+    <section class="section bg2" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-tag">Core Specializations</div>
+          <h2 id="skills-heading">What I Do Best</h2>
+          <div class="cyan-line"></div>
+          <p>Every asset is built for real-time performance — optimized for your target platform without sacrificing
+            visual fidelity.</p>
+        </div>
+        <div class="grid g3">
+          <!-- Card 1 -->
+          <div class="card reveal d1" style="text-align:center;">
+            <div class="card-banner">
+              <img src="character_modeling_3d_1778327631668.png" alt="Character Modeling">
+              <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--c-bg3));"></div>
+            </div>
+            <div style="position: relative; z-index: 2; margin-top: -50px;">
+              <div class="card-icon" style="margin:0 auto var(--s3); background: var(--c-bg3); border: 2px solid var(--c-cyan);"><i class="ri-user-3-line"></i></div>
+              <h3 style="margin-bottom:var(--s1)">Character Modeling</h3>
+              <p style="font-size:.875rem">High-to-low poly pipelines. Clean edge loops, proper mesh density, game-ready topology for all biped and creature characters.</p>
+            </div>
+            <div style="margin-top:var(--s2);display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+              <span class="spec-pill pill-cyan">Blender</span>
+              <span class="spec-pill pill-cyan">Maya</span>
+              <span class="spec-pill pill-cyan">ZBrush</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card reveal d2" style="text-align:center;">
+            <div class="card-banner">
+              <img src="pbr_texturing_maps_1778327855218.png" alt="PBR Texturing">
+              <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--c-bg3));"></div>
+            </div>
+            <div style="position: relative; z-index: 2; margin-top: -50px;">
+              <div class="card-icon" style="margin:0 auto var(--s3); background: var(--c-bg3); border: 2px solid var(--c-violet);"><i class="ri-image-2-line"></i></div>
+              <h3 style="margin-bottom:var(--s1)">PBR Texturing</h3>
+              <p style="font-size:.875rem">Physically-based albedo, normal, roughness, metallic and emissive maps. Optimized atlas layouts and trim sheets.</p>
+            </div>
+            <div style="margin-top:var(--s2);display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+              <span class="spec-pill pill-violet">Substance Painter</span>
+              <span class="spec-pill pill-violet">Marmoset</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card reveal d3" style="text-align:center;">
+            <div class="card-banner">
+              <img src="character_rigging_skeleton_1778327906873.png" alt="Rigging & Skinning">
+              <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--c-bg3));"></div>
+            </div>
+            <div style="position: relative; z-index: 2; margin-top: -50px;">
+              <div class="card-icon" style="margin:0 auto var(--s3); background: var(--c-bg3); border: 2px solid var(--c-amber);"><i class="ri-settings-4-line"></i></div>
+              <h3 style="margin-bottom:var(--s1)">Rigging & Skinning</h3>
+              <p style="font-size:.875rem">Game-ready skeletons, clean weight painting, facial blend shapes and full-body motion-capture-ready rigs.</p>
+            </div>
+            <div style="margin-top:var(--s2);display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+              <span class="spec-pill pill-amber">Unity</span>
+              <span class="spec-pill pill-amber">Unreal</span>
+              <span class="spec-pill pill-amber">Godot</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card reveal d1" style="text-align:center;">
+            <div class="card-banner">
+              <img src="https://images.unsplash.com/photo-1580234810907-b40315b76418?q=80&w=600&auto=format&fit=crop" alt="LOD Optimization">
+              <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--c-bg3));"></div>
+            </div>
+            <div style="position: relative; z-index: 2; margin-top: -50px;">
+              <div class="card-icon" style="margin:0 auto var(--s3); background: var(--c-bg3); border: 2px solid var(--c-green);"><i class="ri-stack-line"></i></div>
+              <h3 style="margin-bottom:var(--s1)">LOD Optimization</h3>
+              <p style="font-size:.875rem">Multi-level-of-detail mesh chains from hero poly counts down to mobile-friendly LOD3 without visible degradation.</p>
+            </div>
+            <div style="margin-top:var(--s2);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:var(--s3)">
+              <span class="spec-pill pill-green">LOD0–LOD3</span>
+              <span class="spec-pill pill-green">Mobile</span>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card reveal d2" style="text-align:center;">
+            <div class="card-banner">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" alt="Asset Export">
+              <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--c-bg3));"></div>
+            </div>
+            <div style="position: relative; z-index: 2; margin-top: -50px;">
+              <div class="card-icon" style="margin:0 auto var(--s3); background: var(--c-bg3); border: 2px solid var(--c-cyan);"><i class="ri-share-box-line"></i></div>
+              <h3 style="margin-bottom:var(--s1)">Asset Export</h3>
+              <p style="font-size:.875rem">Delivery in FBX, GLTF, OBJ, USD and engine-native formats. Proper pivot points, scale and naming conventions.</p>
+            </div>
+            <div style="margin-top:var(--s2);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:var(--s3)">
+              <span class="spec-pill pill-cyan">FBX</span>
+              <span class="spec-pill pill-cyan">GLTF</span>
+              <span class="spec-pill pill-cyan">USD</span>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="card reveal d3" style="text-align:center;">
+            <div class="card-banner">
+              <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=600&auto=format&fit=crop" alt="Revision Pipeline">
+              <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--c-bg3));"></div>
+            </div>
+            <div style="position: relative; z-index: 2; margin-top: -50px;">
+              <div class="card-icon" style="margin:0 auto var(--s3); background: var(--c-bg3); border: 2px solid var(--c-violet);"><i class="ri-git-branch-line"></i></div>
+              <h3 style="margin-bottom:var(--s1)">Revision Pipeline</h3>
+              <p style="font-size:.875rem">Structured revision rounds via the client dashboard. Version control, feedback tracking and approval workflow.</p>
+            </div>
+            <div style="margin-top:var(--s2);display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:var(--s3)">
+              <span class="spec-pill pill-violet">Dashboard</span>
+              <span class="spec-pill pill-violet">3 Rounds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+     SECTION 3: PORTFOLIO PREVIEW
+     ============================================================ -->
+    <section class="section" id="portfolio" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-tag">Selected Works</div>
+          <h2 id="portfolio-heading">Recent Characters</h2>
+          <div class="cyan-line"></div>
+          <p>A selection of shipped game-ready characters across multiple genres and platforms.</p>
+        </div>
+        <div class="grid g3">
+          <!-- Work card 1 -->
+          <article class="work-card reveal d1">
+            <div class="work-img">
+              <img src="portfolio_1_soldier_1778328603120.png" alt="Sci-Fi Soldier"
+                style="width: 100%; height: 100%; object-fit: cover;">
+              <span class="work-badge">AAA</span>
+              <span class="poly-badge">12.4K tris</span>
+              <div class="work-overlay">
+                <a href="pages/portfolio.html" class="btn btn-cyan btn-sm">View Details</a>
+              </div>
+            </div>
+            <div class="work-meta">
+              <h4>Sci-Fi Soldier</h4>
+              <p style="font-size:.8rem;color:var(--c-text3);margin-bottom:var(--s1)">AAA FPS · Combat Character</p>
+              <div class="work-tags">
+                <span class="work-tag">PBR</span>
+                <span class="work-tag">Rigged</span>
+                <span class="work-tag">LOD×4</span>
+                <span class="work-tag">Unreal 5</span>
+              </div>
+            </div>
+          </article>
+          <!-- Work card 2 -->
+          <article class="work-card reveal d2">
+            <div class="work-img">
+              <img src="premium_hero_character_1778328044571.png" alt="Hero Character"
+                style="width: 100%; height: 100%; object-fit: cover;">
+              <span class="work-badge"
+                style="background:rgba(157,80,255,0.15);border-color:rgba(157,80,255,0.3);color:var(--c-violet)">Fantasy</span>
+              <span class="poly-badge">8.1K tris</span>
+              <div class="work-overlay">
+                <a href="pages/portfolio.html" class="btn btn-cyan btn-sm">View Details</a>
+              </div>
+            </div>
+            <div class="work-meta">
+              <h4>Dark Elf Mage</h4>
+              <p style="font-size:.8rem;color:var(--c-text3);margin-bottom:var(--s1)">RPG Mobile · Hero Unit</p>
+              <div class="work-tags">
+                <span class="work-tag">PBR</span>
+                <span class="work-tag">Blend Shapes</span>
+                <span class="work-tag">Unity</span>
+              </div>
+            </div>
+          </article>
+          <!-- Work card 3 -->
+          <article class="work-card reveal d3">
+            <div class="work-img">
+              <img src="character_modeling_3d_1778327631668.png" alt="Stylized Hero"
+                style="width: 100%; height: 100%; object-fit: cover;">
+              <span class="work-badge"
+                style="background:rgba(0,255,133,0.1);border-color:rgba(0,255,133,0.25);color:var(--c-green)">Indie</span>
+              <span class="poly-badge">3.2K tris</span>
+              <div class="work-overlay">
+                <a href="pages/portfolio.html" class="btn btn-cyan btn-sm">View Details</a>
+              </div>
+            </div>
+            <div class="work-meta">
+              <h4>Pixel-Style Hero</h4>
+              <p style="font-size:.8rem;color:var(--c-text3);margin-bottom:var(--s1)">Indie Platformer · Mobile-First
+              </p>
+              <div class="work-tags">
+                <span class="work-tag">Low-Poly</span>
+                <span class="work-tag">Atlas</span>
+                <span class="work-tag">Godot</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="tc" style="margin-top:var(--s5)">
+          <a href="pages/portfolio.html" class="btn btn-outline">Full Portfolio <i class="ri-arrow-right-line"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+     SECTION 4: POLY-COUNT / TOPOLOGY SPECS
+     ============================================================ -->
+    <section class="section bg2" id="specs" aria-labelledby="specs-heading">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-tag">Technical Standards</div>
+          <h2 id="specs-heading">Poly-Count Reference</h2>
+          <div class="cyan-line"></div>
+          <p>Industry-standard polygon budgets by platform and asset complexity — always negotiated per project.</p>
+        </div>
+        <div class="reveal" style="overflow-x:auto">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>Asset Type</th>
+                <th>LOD0 (Hero)</th>
+                <th>LOD1</th>
+                <th>LOD2 (Mobile)</th>
+                <th>Platform</th>
+                <th>Texture Res</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Main Playable Character</td>
+                <td>15K–25K tris</td>
+                <td>8K–12K</td>
+                <td>3K–5K</td>
+                <td>PC / Console</td>
+                <td>4096×4096</td>
+                <td><span class="spec-pill pill-green">Production</span></td>
+              </tr>
+              <tr>
+                <td>NPC / Enemy Unit</td>
+                <td>8K–15K tris</td>
+                <td>4K–8K</td>
+                <td>1.5K–3K</td>
+                <td>PC / Console</td>
+                <td>2048×2048</td>
+                <td><span class="spec-pill pill-green">Production</span></td>
+              </tr>
+              <tr>
+                <td>Mobile Hero</td>
+                <td>3K–6K tris</td>
+                <td>1.5K–3K</td>
+                <td>800–1.2K</td>
+                <td>Mobile / Web</td>
+                <td>1024×1024</td>
+                <td><span class="spec-pill pill-cyan">Optimized</span></td>
+              </tr>
+              <tr>
+                <td>Background NPC</td>
+                <td>2K–4K tris</td>
+                <td>1K–2K</td>
+                <td>500–800</td>
+                <td>All</td>
+                <td>512×512</td>
+                <td><span class="spec-pill pill-amber">Light</span></td>
+              </tr>
+              <tr>
+                <td>Cinematic Character</td>
+                <td>50K–150K tris</td>
+                <td>25K–50K</td>
+                <td>—</td>
+                <td>Cutscene</td>
+                <td>8192×8192</td>
+                <td><span class="spec-pill pill-violet">High-Res</span></td>
+              </tr>
+              <tr>
+                <td>Creature / Monster</td>
+                <td>20K–40K tris</td>
+                <td>10K–20K</td>
+                <td>4K–8K</td>
+                <td>PC / Console</td>
+                <td>4096×4096</td>
+                <td><span class="spec-pill pill-green">Production</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+     SECTION 5: PROCESS TIMELINE
+     ============================================================ -->
+    <section class="section" id="process" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-tag">How It Works</div>
+          <h2 id="process-heading">The Modeling Pipeline</h2>
+          <div class="cyan-line"></div>
+          <p>A transparent, stage-gated workflow with dashboard checkpoints at every milestone.</p>
+        </div>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-dot-wrap">
+              <div class="tl-dot">
+                <div class="tl-dot-inner"></div>
+              </div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-num">Step 01</div>
+              <h4>Concept Art Upload</h4>
+              <p style="font-size:.875rem;margin-top:4px">Studio uploads reference sheets, concept art and technical
+                brief via the dashboard. I review and confirm scope, poly budget and timeline.</p>
+              <span class="tl-dur">Day 1–2</span>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot-wrap">
+              <div class="tl-dot">
+                <div class="tl-dot-inner"></div>
+              </div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-num">Step 02</div>
+              <h4>High-Poly Sculpt Review</h4>
+              <p style="font-size:.875rem;margin-top:4px">High-resolution ZBrush sculpt uploaded to dashboard as
+                turntable render and wireframe. Studio approves silhouette and detail level before retopo begins.</p>
+              <span class="tl-dur">Day 3–7</span>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot-wrap">
+              <div class="tl-dot">
+                <div class="tl-dot-inner"></div>
+              </div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-num">Step 03</div>
+              <h4>Retopology & Wireframe Check</h4>
+              <p style="font-size:.875rem;margin-top:4px">Game-ready low-poly mesh built with clean edge loops.
+                Wireframe uploaded for poly-count verification and topology approval.</p>
+              <span class="tl-dur">Day 8–12</span>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot-wrap">
+              <div class="tl-dot">
+                <div class="tl-dot-inner"></div>
+              </div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-num">Step 04</div>
+              <h4>UV Unwrap & Baking</h4>
+              <p style="font-size:.875rem;margin-top:4px">Efficient UV layout, normal map baking from high to low. Texel
+                density report included for quality assurance.</p>
+              <span class="tl-dur">Day 13–16</span>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot-wrap">
+              <div class="tl-dot">
+                <div class="tl-dot-inner"></div>
+              </div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-num">Step 05</div>
+              <h4>PBR Texture Showcase</h4>
+              <p style="font-size:.875rem;margin-top:4px">Full texture set rendered in Marmoset Toolbag and uploaded.
+                Studio reviews material quality and requests adjustments via revision rounds.</p>
+              <span class="tl-dur">Day 17–21</span>
+            </div>
+          </div>
+          <div class="tl-item reveal">
+            <div class="tl-dot-wrap">
+              <div class="tl-dot">
+                <div class="tl-dot-inner"></div>
+              </div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-num">Step 06</div>
+              <h4>Rigging, LODs & Final Delivery</h4>
+              <p style="font-size:.875rem;margin-top:4px">Full rig, weight painting, LOD chain generated. Final asset
+                package available to download from dashboard with all formats and maps.</p>
+              <span class="tl-dur">Day 22–28</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+     SECTION 6: TESTIMONIALS + CTA
+     ============================================================ -->
+    <section class="section bg2" id="reviews" aria-labelledby="reviews-heading">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-tag">Client Feedback</div>
+          <h2 id="reviews-heading">Studio Reviews</h2>
+          <div class="cyan-line"></div>
+          <p>Trusted by indie studios and AAA teams across North America, Europe and Asia.</p>
+        </div>
+        <div class="grid g3">
+          <div class="testi-card reveal d1" style="text-align: center; align-items: center;">
+            <div class="testi-quote" style="margin-bottom: 0;">"</div>
+            <p class="testi-text" style="text-align: center;">The topology is surgical — every edge loop exactly where it needs to be for our
+              animator. Delivered 3 days early and the poly count came in under budget. Exceptional work.</p>
+            <div class="testi-author" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; border-top: 1px solid var(--c-border); padding-top: var(--s2); gap: 8px;">
+              <div class="testi-av" style="overflow: hidden; border: 1px solid var(--c-cyan); width: 48px; height: 48px;">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop" alt="James Lim" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div>
+                <div class="testi-name">James Lim</div>
+                <div class="testi-role">Art Director · Neon Forge Studios (AAA)</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal d2" style="text-align: center; align-items: center;">
+            <div class="testi-quote" style="margin-bottom: 0;">"</div>
+            <p class="testi-text" style="text-align: center;">Working through the client dashboard made revision rounds incredibly smooth. I could
+              see wireframes, approve textures and download the final FBX without a single email.</p>
+            <div class="testi-author" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; border-top: 1px solid var(--c-border); padding-top: var(--s2); gap: 8px;">
+              <div class="testi-av" style="overflow: hidden; border: 1px solid var(--c-violet); width: 48px; height: 48px;">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=120&auto=format&fit=crop" alt="Sofia Ramirez" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div>
+                <div class="testi-name">Sofia Ramirez</div>
+                <div class="testi-role">Technical Lead · Pixel Drift Games</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal d3" style="text-align: center; align-items: center;">
+            <div class="testi-quote" style="margin-bottom: 0;">"</div>
+            <p class="testi-text" style="text-align: center;">We shipped 18 characters across a mobile RPG and every single one dropped right into
+              Unity with zero issues. The texture atlases saved us 40% draw calls. Incredible value.</p>
+            <div class="testi-author" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; border-top: 1px solid var(--c-border); padding-top: var(--s2); gap: 8px;">
+              <div class="testi-av" style="overflow: hidden; border: 1px solid var(--c-cyan); width: 48px; height: 48px;">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=120&auto=format&fit=crop" alt="Takashi Nakamura" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              <div>
+                <div class="testi-name">Takashi Nakamura</div>
+                <div class="testi-role">CTO · Katana Mobile (Tokyo)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA band -->
+        <div
+          style="margin-top:var(--s8);background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(139,92,246,0.08));border:1px solid var(--c-border);border-radius:var(--r3);padding:var(--s6) var(--s5);display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--s3);"
+          class="reveal">
+          <div>
+            <div class="sec-tag" style="justify-content:center">Ready to Ship</div>
+            <h2 style="font-size:1.8rem;margin-bottom:8px">Start Your Character Project</h2>
+            <p>I have availability for new projects. Let's build something game-ready together.</p>
+          </div>
+          <div class="btn-group">
+            <a href="pages/contact.html" class="btn btn-cyan btn-lg"><i class="ri-mail-send-line"></i> Get a Quote</a>
+            <a href="pages/dashboard.html" class="btn btn-cyan btn-lg"><i class="ri-mail-send-line"></i>Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="nl-section" aria-labelledby="nl-heading">
+      <div class="container">
+        <div class="sec-tag" style="justify-content:center;margin-bottom:var(--s2)">Industry Updates</div>
+        <h2 id="nl-heading" style="font-size:1.8rem;margin-bottom:8px">3D Modeling Tips & New Work</h2>
+        <p style="color:var(--c-text2);max-width:460px;margin:0 auto">Get breakdowns, topology tutorials and
+          availability announcements in your inbox. No spam.</p>
+        <form class="nl-form" aria-label="Newsletter signup">
+          <label for="nl-email" class="sr-only">Email</label>
+          <input type="email" id="nl-email" placeholder="studio@yourgame.com" required />
+          <button type="submit" class="btn btn-cyan">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ FOOTER ============================================================ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:var(--s2)">
+            <div class="logo-mark">MG</div>
+            <div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div>
+          </div>
+          <p>Freelance 3D character modeler specializing in game-ready assets. Available for AAA, indie and mobile
+            projects worldwide.</p>
+          <div class="footer-social" style="margin-top:var(--s3)">
+            <a href="#" class="soc-btn" aria-label="Apple"><i class="ri-apple-line"></i></a>
+            <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+            <a href="#" class="soc-btn" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="soc-btn" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <nav class="footer-links">
+            <a href="index.html"><i class="ri-arrow-right-s-line"></i> Home</a>
+            <a href="pages/home2.html"><i class="ri-arrow-right-s-line"></i> Home 2</a>
+            <a href="pages/portfolio.html"><i class="ri-arrow-right-s-line"></i> Portfolio</a>
+            <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Services</a>
+            <a href="pages/blog.html"><i class="ri-arrow-right-s-line"></i> Blog</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <nav class="footer-links">
+            <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Character Modeling</a>
+            <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> PBR Texturing</a>
+            <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Rigging</a>
+            <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> LOD Generation</a>
+            <a href="pages/dashboard.html"><i class="ri-arrow-right-s-line"></i> Studio Dashboard</a>
+          </nav>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <div class="footer-links">
+            <a href="mailto:hello@modelergame.com"><i class="ri-mail-line"></i> hello@modelergame.com</a>
+            <a href="#"><i class="ri-time-line"></i> Available Mon–Fri</a>
+            <a href="#"><i class="ri-global-line"></i> Remote Worldwide</a>
+            <a href="pages/contact.html"><i class="ri-send-plane-line"></i> Start a Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Modeler Game. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

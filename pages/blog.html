@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Blog | Modeler Game — 3D Modeling Tips & Breakdowns</title>
+  <meta name="description" content="Topology tutorials, texture breakdowns, workflow guides and industry insights from a freelance 3D character modeler with 6 years experience."/>
+  <!-- Times New Roman is a system font -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg"/>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <style>
+    .blog-layout{display:grid;grid-template-columns:1fr 300px;gap:var(--s6);}
+    .blog-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3);overflow:hidden;transition:var(--transition);display:flex;flex-direction:column;}
+    .blog-card:hover{border-color:var(--c-cyan);transform:translateY(-3px);box-shadow:var(--shadow),var(--glow-cyan);}
+    .blog-thumb{height:180px;background:#0b111e;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--c-border);}
+    .blog-cat{position:absolute;top:12px;left:12px;background:rgba(0,212,255,0.12);border:1px solid rgba(0,212,255,0.25);color:var(--c-cyan);padding:3px 10px;border-radius:var(--r1);font-family:var(--f-ui);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;}
+    .blog-body{padding:var(--s3);flex:1;display:flex;flex-direction:column;}
+    .blog-meta{display:flex;gap:var(--s2);font-family:var(--f-ui);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--c-text3);margin-bottom:var(--s1);}
+    .blog-body h3{font-size:1.05rem;margin-bottom:8px;line-height:1.3;}
+    .blog-body p{font-size:.875rem;flex:1;margin-bottom:var(--s2);}
+    .read-link{color:var(--c-cyan);font-family:var(--f-ui);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;transition:var(--transition);}
+    .read-link:hover{gap:8px;}
+    .sidebar-widget{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3);padding:var(--s3);margin-bottom:var(--s3);}
+    .sidebar-widget h5{font-family:var(--f-ui);font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-cyan);margin-bottom:var(--s2);padding-bottom:8px;border-bottom:1px solid var(--c-border);}
+    .sidebar-post{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(30,45,69,.5);}
+    .sidebar-post:last-child{border-bottom:none;}
+    .sp-icon{width:42px;height:42px;border-radius:var(--r1);background:var(--c-bg2);border:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--c-cyan);flex-shrink:0;}
+    .sp-title{font-size:.8rem;font-weight:600;color:var(--c-text);line-height:1.3;margin-bottom:2px;}
+    .sp-date{font-family:var(--f-ui);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-text3);}
+    .tag-cloud{display:flex;flex-wrap:wrap;gap:6px;}
+    .t-tag{background:rgba(0,212,255,0.06);border:1px solid var(--c-border);color:var(--c-text3);padding:3px 10px;border-radius:var(--r1);font-family:var(--f-ui);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:var(--transition);}
+    .t-tag:hover{border-color:var(--c-cyan);color:var(--c-cyan);}
+    .featured-blog{display:grid;grid-template-columns:1.5fr 1fr;gap:var(--s4);background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3);overflow:hidden;margin-bottom:var(--s6);transition:var(--transition);}
+    .featured-blog:hover{border-color:var(--c-cyan);}
+    .featured-vis{background:#0b111e;display:flex;align-items:center;justify-content:center;min-height:280px;position:relative;border-right:1px solid var(--c-border);}
+    .featured-body{padding:var(--s5);display:flex;flex-direction:column;justify-content:center;}
+    .f-btn{padding:8px 20px;border-radius:var(--r1);border:1px solid var(--c-border);background:transparent;color:var(--c-text3);font-family:var(--f-ui);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:var(--transition);}
+    .f-btn:hover,.f-btn.active{background:rgba(0,212,255,0.08);border-color:var(--c-cyan);color:var(--c-cyan);}
+    
+    /* Neon glowing vector visibility and micro-interactions */
+    .blog-thumb svg, .featured-vis svg {
+      transition: transform .4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .blog-card:hover .blog-thumb svg {
+      transform: scale(1.08) rotate(1deg) !important;
+    }
+    .featured-blog:hover .featured-vis svg {
+      transform: scale(1.05) !important;
+    }
+    .blog-thumb svg *, .featured-vis svg * {
+      stroke-width: 1.5px !important;
+      opacity: 0.95 !important;
+    }
+    @media(max-width:1024px){.blog-layout{grid-template-columns:1fr;}.featured-blog{grid-template-columns:1fr;}.featured-vis{min-height:180px;border-right:none;border-bottom:1px solid var(--c-border);}}
+  </style>
+</head>
+<body>
+<header id="header" role="banner"><div class="container"><div class="header-inner">
+  <a href="../index.html" class="header-logo"><div class="logo-mark">MG</div><div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div></a>
+  <nav class="header-nav" role="navigation"><a href="../index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="services.html" class="nav-link">Services</a><a href="blog.html" class="nav-link active">Blog</a><a href="contact.html" class="nav-link">Contact</a><a href="dashboard.html" class="nav-link">Dashboard</a></nav>
+  <div class="header-controls"><button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button><button class="icon-btn" data-theme-toggle aria-label="Theme"><i class="ri-sun-line"></i></button><a href="login.html" class="btn btn-outline btn-sm">Login</a></div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div></div></header>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="../index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="services.html" class="nav-link">Services</a><a href="blog.html" class="nav-link active">Blog</a><a href="contact.html" class="nav-link">Contact</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="login.html" class="nav-link">Login</a>
+  <div class="mobile-nav-controls"><button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button><button class="icon-btn" data-theme-toggle aria-label="Theme"><i class="ri-sun-line"></i></button></div>
+</div>
+
+<main class="page-content">
+  <section class="page-hero"><div class="page-hero-grid"></div><div class="container"><span class="sec-tag" style="justify-content:center;margin-bottom:var(--s2)">Dev Notes</span><h1>3D Modeling Blog</h1><p>Topology breakdowns, texture tutorials, workflow guides and industry insights.</p><nav class="breadcrumb" aria-label="Breadcrumb"></nav></div></section>
+
+  <section class="section"><div class="container">
+    <!-- Filter -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:var(--s6);" role="group">
+      <button class="f-btn active">All Posts</button>
+      <button class="f-btn">Topology</button>
+      <button class="f-btn">Texturing</button>
+      <button class="f-btn">Rigging</button>
+      <button class="f-btn">Workflow</button>
+      <button class="f-btn">Industry</button>
+    </div>
+
+    <!-- Featured -->
+    <article class="featured-blog reveal">
+      <div class="featured-vis"><svg width="140" height="100" viewBox="0 0 140 100" fill="none"><rect x="2" y="2" width="136" height="96" stroke="#00D4FF" stroke-width="0.5" stroke-dasharray="4 4"/><circle cx="70" cy="38" r="28" stroke="#00D4FF" stroke-width="0.8"/><ellipse cx="70" cy="38" rx="28" ry="14" stroke="#00D4FF" stroke-width="0.4" opacity="0.5"/><line x1="42" y1="38" x2="98" y2="38" stroke="#00D4FF" stroke-width="0.4" opacity="0.4"/><line x1="70" y1="10" x2="70" y2="66" stroke="#00D4FF" stroke-width="0.4" opacity="0.4"/><line x1="70" y1="66" x2="70" y2="85" stroke="#00D4FF" stroke-width="0.8"/><line x1="70" y1="75" x2="50" y2="85" stroke="#00D4FF" stroke-width="0.8"/><line x1="70" y1="75" x2="90" y2="85" stroke="#00D4FF" stroke-width="0.8"/><circle cx="70" cy="38" r="4" fill="#00D4FF" opacity="0.5"/></svg><span class="blog-cat">Topology</span></div>
+      <div class="featured-body">
+        <div style="display:inline-block;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);color:var(--c-cyan);padding:3px 12px;border-radius:var(--r1);font-family:var(--f-ui);font-size:0.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:var(--s2)">⚡ Featured Post</div>
+        <h2 style="font-size:1.6rem;margin-bottom:var(--s2)">The Complete Guide to Head Topology for Game Characters</h2>
+        <p style="margin-bottom:var(--s3)">A deep dive into edge loop placement, jaw deformation loops and mouth corner topology for characters that need to support facial animation in real-time engines.</p>
+        <div class="blog-meta" style="margin-bottom:var(--s3)"><span><i class="ri-calendar-line"></i> Nov 22, 2024</span><span><i class="ri-time-line"></i> 14 min read</span><span><i class="ri-eye-line"></i> 8.2K views</span></div>
+        <a href="#" class="read-link">Read Full Breakdown <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </article>
+
+    <div class="blog-layout">
+      <!-- Posts -->
+      <div>
+        <div class="grid g2" style="margin-bottom:var(--s4)">
+          <article class="blog-card reveal d1"><div class="blog-thumb"><svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="5" y="5" width="70" height="50" stroke="#8B5CF6" stroke-width="0.7"/><rect x="12" y="12" width="25" height="20" stroke="#8B5CF6" stroke-width="0.5" opacity="0.6"/><rect x="43" y="12" width="25" height="20" stroke="#00D4FF" stroke-width="0.5" opacity="0.6"/><text x="14" y="38" fill="#8B5CF6" font-size="6" font-family="monospace" opacity="0.7">Albedo</text><text x="45" y="38" fill="#00D4FF" font-size="6" font-family="monospace" opacity="0.7">Normal</text></svg><span class="blog-cat" style="background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.25);color:var(--c-violet)">Texturing</span></div><div class="blog-body"><div class="blog-meta"><span><i class="ri-calendar-line"></i> Nov 14</span><span>9 min</span></div><h3>ORM Channel Packing: Save GPU Time Without Losing Quality</h3><p style="font-size:.825rem">How to pack Occlusion, Roughness and Metallic maps into a single texture and why every mobile game needs this.</p><a href="#" class="read-link">Read <i class="ri-arrow-right-line"></i></a></div></article>
+          <article class="blog-card reveal d2"><div class="blog-thumb"><svg width="80" height="60" viewBox="0 0 80 60" fill="none"><circle cx="40" cy="18" r="10" stroke="#10B981" stroke-width="0.7"/><line x1="40" y1="28" x2="40" y2="42" stroke="#10B981" stroke-width="0.7"/><line x1="40" y1="35" x2="26" y2="42" stroke="#10B981" stroke-width="0.7"/><line x1="40" y1="35" x2="54" y2="42" stroke="#10B981" stroke-width="0.7"/><line x1="40" y1="42" x2="30" y2="56" stroke="#10B981" stroke-width="0.7"/><line x1="40" y1="42" x2="50" y2="56" stroke="#10B981" stroke-width="0.7"/><circle cx="40" cy="18" r="3" fill="#10B981" opacity="0.5"/></svg><span class="blog-cat" style="background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.25);color:var(--c-green)">Rigging</span></div><div class="blog-body"><div class="blog-meta"><span><i class="ri-calendar-line"></i> Nov 6</span><span>11 min</span></div><h3>Biped Rigs for Unity Mecanim: Joint Naming & Hierarchy Guide</h3><p style="font-size:.825rem">The exact joint naming convention Unity's Mecanim system expects — and how to set it up from scratch in Maya.</p><a href="#" class="read-link">Read <i class="ri-arrow-right-line"></i></a></div></article>
+          <article class="blog-card reveal d1"><div class="blog-thumb"><svg width="80" height="60" viewBox="0 0 80 60" fill="none"><polygon points="40,5 75,50 5,50" stroke="#F59E0B" stroke-width="0.7" fill="none"/><polygon points="40,18 64,50 16,50" stroke="#F59E0B" stroke-width="0.5" fill="none" opacity="0.5"/><circle cx="40" cy="30" r="4" fill="#F59E0B" opacity="0.5"/></svg><span class="blog-cat">Topology</span></div><div class="blog-body"><div class="blog-meta"><span><i class="ri-calendar-line"></i> Oct 28</span><span>7 min</span></div><h3>Triangles vs Quads: When to Break the Rules on Game Meshes</h3><p style="font-size:.825rem">Yes, quads are the standard — but there are specific spots where a carefully placed tri or ngon is the smarter choice.</p><a href="#" class="read-link">Read <i class="ri-arrow-right-line"></i></a></div></article>
+          <article class="blog-card reveal d2"><div class="blog-thumb"><svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="8" y="8" width="64" height="44" rx="3" stroke="#00D4FF" stroke-width="0.7"/><line x1="8" y1="22" x2="72" y2="22" stroke="#00D4FF" stroke-width="0.4" opacity="0.4"/><line x1="8" y1="36" x2="72" y2="36" stroke="#00D4FF" stroke-width="0.4" opacity="0.4"/><line x1="28" y1="8" x2="28" y2="52" stroke="#00D4FF" stroke-width="0.4" opacity="0.4"/><line x1="52" y1="8" x2="52" y2="52" stroke="#00D4FF" stroke-width="0.4" opacity="0.4"/></svg><span class="blog-cat">Workflow</span></div><div class="blog-body"><div class="blog-meta"><span><i class="ri-calendar-line"></i> Oct 18</span><span>8 min</span></div><h3>UV Atlasing Strategy for Mobile Characters with Tight Budgets</h3><p style="font-size:.825rem">How to pack a full character's textures into a single 1024 atlas without visible seams or blurry details.</p><a href="#" class="read-link">Read <i class="ri-arrow-right-line"></i></a></div></article>
+          <article class="blog-card reveal d1"><div class="blog-thumb"><svg width="80" height="60" viewBox="0 0 80 60" fill="none"><circle cx="40" cy="30" r="25" stroke="#8B5CF6" stroke-width="0.7"/><circle cx="40" cy="30" r="16" stroke="#8B5CF6" stroke-width="0.5" opacity="0.6"/><circle cx="40" cy="30" r="8" stroke="#8B5CF6" stroke-width="0.5" opacity="0.4"/><circle cx="40" cy="30" r="3" fill="#8B5CF6" opacity="0.6"/></svg><span class="blog-cat" style="background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.25);color:var(--c-violet)">Industry</span></div><div class="blog-body"><div class="blog-meta"><span><i class="ri-calendar-line"></i> Oct 8</span><span>12 min</span></div><h3>Freelance Game Art in 2025: Rates, Contracts and Red Flags</h3><p style="font-size:.825rem">Six years of freelancing experience distilled into the contract clauses that protect you and the rates the market will actually pay.</p><a href="#" class="read-link">Read <i class="ri-arrow-right-line"></i></a></div></article>
+          <article class="blog-card reveal d2"><div class="blog-thumb"><svg width="80" height="60" viewBox="0 0 80 60" fill="none"><rect x="5" y="10" width="30" height="40" rx="2" stroke="#10B981" stroke-width="0.6"/><rect x="23" y="16" width="30" height="40" rx="2" stroke="#00D4FF" stroke-width="0.6" opacity="0.7"/><rect x="41" y="22" width="30" height="40" rx="2" stroke="#8B5CF6" stroke-width="0.6" opacity="0.5"/></svg><span class="blog-cat" style="background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.25);color:var(--c-green)">Workflow</span></div><div class="blog-body"><div class="blog-meta"><span><i class="ri-calendar-line"></i> Sep 30</span><span>6 min</span></div><h3>LOD Generation Best Practices: How Far Can You Push It?</h3><p style="font-size:.825rem">Real-world LOD reduction percentages, the tools I use, and the visual tricks that hide polygon loss at distance.</p><a href="#" class="read-link">Read <i class="ri-arrow-right-line"></i></a></div></article>
+        </div>
+        <!-- Pagination -->
+        <div style="display:flex;justify-content:center;gap:6px">
+          <button class="f-btn active">1</button>
+          <button class="f-btn">2</button>
+          <button class="f-btn">3</button>
+          <button class="f-btn">Next <i class="ri-arrow-right-s-line"></i></button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="sidebar-widget"><h5>Search</h5><div style="display:flex;gap:6px;margin-top:var(--s1)"><input type="search" placeholder="Search posts..." class="form-ctrl" style="flex:1" aria-label="Search blog"/><button class="btn btn-cyan btn-sm" aria-label="Search"><i class="ri-search-line"></i></button></div></div>
+        <div class="sidebar-widget"><h5>Recent Posts</h5>
+          <div class="sidebar-post"><div class="sp-icon"><i class="ri-user-3-line"></i></div><div><div class="sp-title">Head Topology Guide</div><div class="sp-date">Nov 22, 2024</div></div></div>
+          <div class="sidebar-post"><div class="sp-icon"><i class="ri-image-2-line"></i></div><div><div class="sp-title">ORM Channel Packing</div><div class="sp-date">Nov 14, 2024</div></div></div>
+          <div class="sidebar-post"><div class="sp-icon"><i class="ri-settings-4-line"></i></div><div><div class="sp-title">Biped Rig for Mecanim</div><div class="sp-date">Nov 6, 2024</div></div></div>
+          <div class="sidebar-post"><div class="sp-icon"><i class="ri-shape-line"></i></div><div><div class="sp-title">Tris vs Quads Guide</div><div class="sp-date">Oct 28, 2024</div></div></div>
+        </div>
+        <div class="sidebar-widget"><h5>Topics</h5><div class="tag-cloud" style="margin-top:var(--s1)"><span class="t-tag">Topology</span><span class="t-tag">PBR</span><span class="t-tag">ZBrush</span><span class="t-tag">Rigging</span><span class="t-tag">LOD</span><span class="t-tag">UV Maps</span><span class="t-tag">Unity</span><span class="t-tag">Unreal</span><span class="t-tag">Workflow</span><span class="t-tag">Industry</span></div></div>
+        <div class="sidebar-widget" style="background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(139,92,246,0.08));border-color:var(--c-border2)">
+          <h5>Newsletter</h5>
+          <p style="font-size:.8rem;color:var(--c-text3);margin:var(--s1) 0 var(--s2)">Get new breakdowns and tutorials straight to your inbox.</p>
+          <input type="email" placeholder="studio@game.com" class="form-ctrl" style="margin-bottom:8px" aria-label="Newsletter email"/>
+          <button class="btn btn-cyan btn-full btn-sm">Subscribe</button>
+        </div>
+      </aside>
+    </div>
+  </div></section>
+</main>
+
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:var(--s2)">
+          <div class="logo-mark">MG</div>
+          <div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div>
+        </div>
+        <p>Freelance 3D character modeler specializing in game-ready assets. Available for AAA, indie and mobile projects worldwide.</p>
+        <div class="footer-social" style="margin-top:var(--s3)">
+          <a href="#" class="soc-btn" aria-label="Apple"><i class="ri-apple-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <nav class="footer-links">
+          <a href="index.html"><i class="ri-arrow-right-s-line"></i> Home</a>
+          <a href="pages/home2.html"><i class="ri-arrow-right-s-line"></i> Home 2</a>
+          <a href="pages/portfolio.html"><i class="ri-arrow-right-s-line"></i> Portfolio</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Services</a>
+          <a href="pages/blog.html"><i class="ri-arrow-right-s-line"></i> Blog</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <nav class="footer-links">
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Character Modeling</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> PBR Texturing</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Rigging</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> LOD Generation</a>
+          <a href="pages/dashboard.html"><i class="ri-arrow-right-s-line"></i> Studio Dashboard</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-links">
+          <a href="mailto:hello@modelergame.com"><i class="ri-mail-line"></i> hello@modelergame.com</a>
+          <a href="#"><i class="ri-time-line"></i> Available Mon–Fri</a>
+          <a href="#"><i class="ri-global-line"></i> Remote Worldwide</a>
+          <a href="pages/contact.html"><i class="ri-send-plane-line"></i> Start a Project</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Modeler Game. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+<script>document.querySelectorAll('.f-btn').forEach(b=>b.addEventListener('click',function(){document.querySelectorAll('.f-btn').forEach(x=>x.classList.remove('active'));this.classList.add('active');}));</script>
+</body></html>

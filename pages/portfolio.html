@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Portfolio | Modeler Game — 3D Character Models</title>
+  <meta name="description" content="Browse 120+ game-ready 3D character models. Topology samples, PBR textures, rigging previews for AAA, mobile and indie games."/>
+  <!-- Times New Roman is a system font -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg"/>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <style>
+    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:var(--s6);}
+    .f-btn{padding:8px 20px;border-radius:var(--r1);border:1px solid var(--c-border);background:transparent;color:var(--c-text3);font-family:var(--f-ui);font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:var(--transition);}
+    .f-btn:hover,.f-btn.active{background:rgba(0,212,255,0.08);border-color:var(--c-cyan);color:var(--c-cyan);}
+    .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);}
+    .topo-section{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3);padding:var(--s5);}
+    .topo-vis{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3);}
+    @media(max-width:1024px){.topo-vis{grid-template-columns:1fr 1fr;}}
+    @media(max-width:640px){.topo-vis{grid-template-columns:1fr;}}
+    .topo-box{background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--r2);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden;transition:var(--transition);box-shadow:var(--shadow);}
+    .topo-box:hover{border-color:var(--c-cyan);box-shadow:var(--glow-cyan);transform:translateY(-2px);}
+    .topo-label{position:absolute;bottom:12px;left:8px;right:8px;font-family:var(--f-ui);font-size:0.7rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--c-text2);text-align:center;transition:var(--transition);}
+    .topo-box:hover .topo-label{color:var(--c-cyan);}
+    .topo-box svg * {
+      stroke-width: 1.25px !important;
+      opacity: 0.85 !important;
+    }
+    @media(max-width:1024px) and (min-width:641px){
+      .port-grid{grid-template-columns:repeat(2,1fr);}
+      .port-grid > *:nth-child(9):last-child {
+        grid-column: span 2 !important;
+        justify-self: center !important;
+        width: 100% !important;
+        max-width: calc(50% - (var(--s3) / 2)) !important;
+      }
+    }
+    @media(max-width:640px){.port-grid{grid-template-columns:1fr;}.topo-vis{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body><header id="header" role="banner"><div class="container"><div class="header-inner">
+  <a href="../index.html" class="header-logo"><div class="logo-mark">MG</div><div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div></a>
+  <nav class="header-nav" role="navigation" aria-label="Main navigation">
+    <a href="../index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="portfolio.html" class="nav-link active">Portfolio</a><a href="services.html" class="nav-link">Services</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link">Contact</a><a href="dashboard.html" class="nav-link">Dashboard</a>
+  </nav>
+  <div class="header-controls"><button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button><button class="icon-btn" data-theme-toggle aria-label="Theme"><i class="ri-sun-line"></i></button><a href="login.html" class="btn btn-outline btn-sm">Login</a></div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div></div></header>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="../index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="portfolio.html" class="nav-link active">Portfolio</a><a href="services.html" class="nav-link">Services</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link">Contact</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="login.html" class="nav-link">Login</a>
+  <div class="mobile-nav-controls"><button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button><button class="icon-btn" data-theme-toggle aria-label="Theme"><i class="ri-sun-line"></i></button></div>
+</div>
+
+<main class="page-content">
+  <section class="page-hero"><div class="page-hero-grid"></div><div class="container"><span class="sec-tag" style="justify-content:center;margin-bottom:var(--s2)">Selected Works</span><h1>Character Portfolio</h1><p>120+ game-ready characters shipped across AAA, indie and mobile platforms worldwide.</p><nav class="breadcrumb" aria-label="Breadcrumb"></nav></div></section>
+
+  <!-- PORTFOLIO GRID -->
+  <section class="section"><div class="container">
+    <div class="filter-bar reveal" role="group" aria-label="Filter portfolio">
+      <button class="f-btn active" data-filter="all">All Works</button>
+      <button class="f-btn" data-filter="aaa">AAA</button>
+      <button class="f-btn" data-filter="mobile">Mobile</button>
+      <button class="f-btn" data-filter="indie">Indie</button>
+      <button class="f-btn" data-filter="creature">Creature</button>
+      <button class="f-btn" data-filter="hero">Hero Units</button>
+    </div>
+    <div class="port-grid">
+      <!-- Cards x9 -->
+      <article class="work-card reveal d1" data-category="aaa">
+        <div class="work-img"><img src="../portfolio_1_soldier_1778328603120.png" alt="Spec-Ops Soldier" style="width: 100%; height: 100%; object-fit: cover;"><span class="work-badge">AAA · FPS</span><span class="poly-badge">14.2K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Spec-Ops Soldier</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">PC / Console Combat</p><div class="work-tags"><span class="work-tag">PBR 4K</span><span class="work-tag">Rigged</span><span class="work-tag">LOD×4</span><span class="work-tag">UE5</span></div></div>
+      </article>
+      <article class="work-card reveal d2" data-category="mobile">
+        <div class="work-img"><img src="../premium_hero_character_1778328044571.png" alt="Fantasy Archer" style="width: 100%; height: 100%; object-fit: cover;"><span class="work-badge" style="background:rgba(157,80,255,0.15);border-color:rgba(157,80,255,0.3);color:var(--c-violet)">Mobile · RPG</span><span class="poly-badge">3.8K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Fantasy Archer</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">Mobile RPG Hero</p><div class="work-tags"><span class="work-tag">Atlas 1K</span><span class="work-tag">Rigged</span><span class="work-tag">Unity</span></div></div>
+      </article>
+      <article class="work-card reveal d3" data-category="creature">
+        <div class="work-img"><img src="../character_modeling_3d_1778327631668.png" alt="Forest Golem" style="width: 100%; height: 100%; object-fit: cover;"><span class="work-badge" style="background:rgba(0,255,133,.1);border-color:rgba(0,255,133,.25);color:var(--c-green)">Creature</span><span class="poly-badge">22.6K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Forest Golem Boss</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">RPG Boss Enemy</p><div class="work-tags"><span class="work-tag">PBR 4K</span><span class="work-tag">Rigged</span><span class="work-tag">LOD×3</span></div></div>
+      </article>
+      <article class="work-card reveal d1" data-category="indie">
+        <div class="work-img"><div class="work-placeholder"><svg width="100" height="100" viewBox="0 0 100 100" fill="none"><rect x="20" y="15" width="60" height="70" rx="5" stroke="var(--c-amber)" stroke-width="0.8"/><circle cx="50" cy="35" r="12" stroke="var(--c-amber)" stroke-width="0.8"/><line x1="20" y1="55" x2="80" y2="55" stroke="var(--c-amber)" stroke-width="0.5" opacity="0.5"/><circle cx="50" cy="35" r="4" fill="var(--c-amber)" opacity="0.5"/></svg><span style="font-family:var(--f-ui);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-text3)">Wireframe</span></div><span class="work-badge" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.25);color:var(--c-amber)">Indie</span><span class="poly-badge">2.1K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Retro Robot NPC</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">Indie Platformer</p><div class="work-tags"><span class="work-tag">Low-Poly</span><span class="work-tag">Atlas</span><span class="work-tag">Godot</span></div></div>
+      </article>
+      <article class="work-card reveal d2" data-category="hero">
+        <div class="work-img"><div class="work-placeholder"><svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="28" r="14" stroke="var(--c-cyan)" stroke-width="0.8"/><path d="M36 42 L20 80 L50 68 L80 80 L64 42" stroke="var(--c-cyan)" stroke-width="0.8" fill="none"/><line x1="50" y1="42" x2="50" y2="68" stroke="var(--c-cyan)" stroke-width="0.6" opacity="0.5"/></svg><span style="font-family:var(--f-ui);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-text3)">Wireframe</span></div><span class="work-badge">AAA · Hero</span><span class="poly-badge">18.4K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Cyber Assassin</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">AAA Action RPG</p><div class="work-tags"><span class="work-tag">PBR 4K</span><span class="work-tag">Blend Shapes</span><span class="work-tag">UE5</span></div></div>
+      </article>
+      <article class="work-card reveal d3" data-category="mobile">
+        <div class="work-img"><div class="work-placeholder"><svg width="100" height="100" viewBox="0 0 100 100" fill="none"><polygon points="50,10 90,35 90,65 50,90 10,65 10,35" stroke="var(--c-violet)" stroke-width="0.8" fill="none"/><polygon points="50,25 75,40 75,60 50,75 25,60 25,40" stroke="var(--c-violet)" stroke-width="0.6" fill="none" opacity="0.5"/><circle cx="50" cy="50" r="8" fill="var(--c-violet)" opacity="0.3"/></svg><span style="font-family:var(--f-ui);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-text3)">Wireframe</span></div><span class="work-badge" style="background:rgba(139,92,246,.15);border-color:rgba(139,92,246,.3);color:var(--c-violet)">Mobile</span><span class="poly-badge">4.2K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Mech Warrior</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">Mobile Strategy</p><div class="work-tags"><span class="work-tag">Atlas 2K</span><span class="work-tag">LOD×2</span><span class="work-tag">Unity</span></div></div>
+      </article>
+      <article class="work-card reveal d1" data-category="creature">
+        <div class="work-img"><div class="work-placeholder"><svg width="100" height="100" viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="35" ry="25" stroke="var(--c-green)" stroke-width="0.8"/><ellipse cx="50" cy="40" rx="20" ry="15" stroke="var(--c-green)" stroke-width="0.6" opacity="0.6"/><line x1="15" y1="50" x2="5" y2="65" stroke="var(--c-green)" stroke-width="0.8"/><line x1="85" y1="50" x2="95" y2="65" stroke="var(--c-green)" stroke-width="0.8"/><circle cx="40" cy="38" r="4" stroke="var(--c-green)" stroke-width="0.8"/><circle cx="60" cy="38" r="4" stroke="var(--c-green)" stroke-width="0.8"/></svg><span style="font-family:var(--f-ui);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-text3)">Wireframe</span></div><span class="work-badge" style="background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.25);color:var(--c-green)">Creature</span><span class="poly-badge">16.8K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Deep Sea Leviathan</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">Horror Survival Boss</p><div class="work-tags"><span class="work-tag">PBR 4K</span><span class="work-tag">Rigged</span><span class="work-tag">UE5</span></div></div>
+      </article>
+      <article class="work-card reveal d2" data-category="aaa">
+        <div class="work-img"><div class="work-placeholder"><svg width="100" height="100" viewBox="0 0 100 100" fill="none"><rect x="25" y="10" width="50" height="80" rx="3" stroke="var(--c-cyan)" stroke-width="0.8"/><line x1="25" y1="35" x2="75" y2="35" stroke="var(--c-cyan)" stroke-width="0.5" opacity="0.5"/><line x1="25" y1="65" x2="75" y2="65" stroke="var(--c-cyan)" stroke-width="0.5" opacity="0.5"/><circle cx="50" cy="22" r="8" stroke="var(--c-cyan)" stroke-width="0.8"/><circle cx="50" cy="22" r="3" fill="var(--c-cyan)" opacity="0.5"/></svg><span style="font-family:var(--f-ui);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-text3)">Wireframe</span></div><span class="work-badge">AAA · NPC</span><span class="poly-badge">9.6K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Medieval Merchant</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">Open World NPC</p><div class="work-tags"><span class="work-tag">PBR 2K</span><span class="work-tag">Rigged</span><span class="work-tag">LOD×3</span></div></div>
+      </article>
+      <article class="work-card reveal d3" data-category="indie">
+        <div class="work-img"><div class="work-placeholder"><svg width="100" height="100" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="35" stroke="var(--c-amber)" stroke-width="0.8"/><circle cx="50" cy="50" r="22" stroke="var(--c-amber)" stroke-width="0.6" opacity="0.6"/><circle cx="50" cy="50" r="10" stroke="var(--c-amber)" stroke-width="0.6" opacity="0.4"/><line x1="15" y1="50" x2="85" y2="50" stroke="var(--c-amber)" stroke-width="0.4" opacity="0.3"/><line x1="50" y1="15" x2="50" y2="85" stroke="var(--c-amber)" stroke-width="0.4" opacity="0.3"/><circle cx="50" cy="50" r="4" fill="var(--c-amber)" opacity="0.7"/></svg><span style="font-family:var(--f-ui);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c-text3)">Wireframe</span></div><span class="work-badge" style="background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.25);color:var(--c-amber)">Indie</span><span class="poly-badge">5.3K tris</span><div class="work-overlay"><a href="#" class="btn btn-cyan btn-sm">View Case</a></div></div>
+        <div class="work-meta"><h4>Space Explorer</h4><p style="font-size:.78rem;color:var(--c-text3);margin-bottom:var(--s1)">Sci-Fi Adventure</p><div class="work-tags"><span class="work-tag">PBR 2K</span><span class="work-tag">Rigged</span><span class="work-tag">Godot</span></div></div>
+      </article>
+    </div>
+  </div></section>
+
+  <!-- TOPOLOGY SHOWCASE -->
+  <section class="section bg2"><div class="container">
+    <div class="sec-head reveal"><div class="sec-tag">Topology Samples</div><h2>Clean Edge Flow</h2><div class="cyan-line"></div><p>Real wireframe captures from shipped assets — demonstrating professional mesh density and edge loop placement.</p></div>
+    <div class="topo-section reveal">
+      <div class="topo-vis">
+        <div class="topo-box"><svg width="140" height="100" viewBox="0 0 140 100" fill="none"><rect x="2" y="2" width="136" height="96" stroke="var(--c-cyan)" stroke-width="0.4" stroke-dasharray="3 3"/><circle cx="70" cy="30" r="22" stroke="var(--c-cyan)" stroke-width="0.7"/><ellipse cx="70" cy="30" rx="22" ry="14" stroke="var(--c-cyan)" stroke-width="0.4" opacity="0.5"/><line x1="48" y1="30" x2="92" y2="30" stroke="var(--c-cyan)" stroke-width="0.4" opacity="0.5"/><line x1="70" y1="8" x2="70" y2="52" stroke="var(--c-cyan)" stroke-width="0.4" opacity="0.5"/><line x1="70" y1="52" x2="70" y2="75" stroke="var(--c-cyan)" stroke-width="0.7"/><line x1="70" y1="63" x2="48" y2="72" stroke="var(--c-cyan)" stroke-width="0.7"/><line x1="70" y1="63" x2="92" y2="72" stroke="var(--c-cyan)" stroke-width="0.7"/><line x1="70" y1="75" x2="55" y2="96" stroke="var(--c-cyan)" stroke-width="0.7"/><line x1="70" y1="75" x2="85" y2="96" stroke="var(--c-cyan)" stroke-width="0.7"/><circle cx="70" cy="30" r="3" fill="var(--c-cyan)" opacity="0.6"/></svg><div class="topo-label">Head + Body · 8.4K tris</div></div>
+        <div class="topo-box"><svg width="140" height="100" viewBox="0 0 140 100" fill="none"><rect x="2" y="2" width="136" height="96" stroke="var(--c-violet)" stroke-width="0.4" stroke-dasharray="3 3"/><rect x="20" y="10" width="100" height="80" rx="3" stroke="var(--c-violet)" stroke-width="0.7"/><line x1="20" y1="30" x2="120" y2="30" stroke="var(--c-violet)" stroke-width="0.4" opacity="0.5"/><line x1="20" y1="50" x2="120" y2="50" stroke="var(--c-violet)" stroke-width="0.4" opacity="0.5"/><line x1="20" y1="70" x2="120" y2="70" stroke="var(--c-violet)" stroke-width="0.4" opacity="0.5"/><line x1="45" y1="10" x2="45" y2="90" stroke="var(--c-violet)" stroke-width="0.4" opacity="0.4"/><line x1="70" y1="10" x2="70" y2="90" stroke="var(--c-violet)" stroke-width="0.4" opacity="0.4"/><line x1="95" y1="10" x2="95" y2="90" stroke="var(--c-violet)" stroke-width="0.4" opacity="0.4"/><circle cx="70" cy="50" r="5" fill="var(--c-violet)" opacity="0.4"/></svg><div class="topo-label">Torso UV Grid · Clean Loops</div></div>
+        <div class="topo-box"><svg width="140" height="100" viewBox="0 0 140 100" fill="none"><line x1="70" y1="5" x2="70" y2="95" stroke="var(--c-green)" stroke-width="0.7"/><circle cx="70" cy="20" r="12" stroke="var(--c-green)" stroke-width="0.7"/><line x1="58" y1="20" x2="82" y2="20" stroke="var(--c-green)" stroke-width="0.4" opacity="0.5"/><line x1="70" y1="8" x2="70" y2="32" stroke="var(--c-green)" stroke-width="0.4" opacity="0.5"/><line x1="70" y1="32" x2="45" y2="55" stroke="var(--c-green)" stroke-width="0.7"/><line x1="70" y1="32" x2="95" y2="55" stroke="var(--c-green)" stroke-width="0.7"/><line x1="70" y1="55" x2="70" y2="80" stroke="var(--c-green)" stroke-width="0.7"/><line x1="70" y1="67" x2="48" y2="80" stroke="var(--c-green)" stroke-width="0.7"/><line x1="70" y1="67" x2="92" y2="80" stroke="var(--c-green)" stroke-width="0.7"/><line x1="70" y1="80" x2="55" y2="98" stroke="var(--c-green)" stroke-width="0.7"/><line x1="70" y1="80" x2="85" y2="98" stroke="var(--c-green)" stroke-width="0.7"/><circle cx="70" cy="20" r="3" fill="var(--c-green)" opacity="0.7"/></svg><div class="topo-label">Full Body · Rig-Ready</div></div>
+        <div class="topo-box"><svg width="140" height="100" viewBox="0 0 140 100" fill="none"><ellipse cx="70" cy="50" rx="50" ry="40" stroke="var(--c-amber)" stroke-width="0.7"/><ellipse cx="70" cy="50" rx="35" ry="28" stroke="var(--c-amber)" stroke-width="0.5" opacity="0.6"/><ellipse cx="70" cy="50" rx="20" ry="16" stroke="var(--c-amber)" stroke-width="0.5" opacity="0.4"/><line x1="20" y1="50" x2="120" y2="50" stroke="var(--c-amber)" stroke-width="0.4" opacity="0.3"/><line x1="70" y1="10" x2="70" y2="90" stroke="var(--c-amber)" stroke-width="0.4" opacity="0.3"/><circle cx="70" cy="50" r="5" fill="var(--c-amber)" opacity="0.5"/></svg><div class="topo-label">Head Topology · Quads Only</div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- CTA -->
+  <section class="section"><div class="container"><div style="background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(139,92,246,0.08));border:1px solid var(--c-border);border-radius:var(--r3);padding:var(--s6);text-align:center;" class="reveal">
+    <div class="sec-tag" style="justify-content:center;margin-bottom:var(--s2)">Ready to Collaborate</div>
+    <h2 style="margin-bottom:var(--s2)">Need a Character Like These?</h2>
+    <p style="max-width:500px;margin:0 auto var(--s5)">Every asset is custom-built for your game. Send me your concept art and I'll give you a quote within 24 hours.</p>
+    <div class="btn-group">
+      <a href="contact.html" class="btn btn-cyan btn-lg"><i class="ri-mail-send-line"></i> Request a Quote</a>
+      <a href="dashboard.html" class="btn btn-ghost btn-lg"><i class="ri-dashboard-line"></i> Studio Dashboard</a>
+    </div>
+  </div></div></section>
+</main>
+
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:var(--s2)">
+          <div class="logo-mark">MG</div>
+          <div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div>
+        </div>
+        <p>Freelance 3D character modeler specializing in game-ready assets. Available for AAA, indie and mobile projects worldwide.</p>
+        <div class="footer-social" style="margin-top:var(--s3)">
+          <a href="#" class="soc-btn" aria-label="Apple"><i class="ri-apple-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <nav class="footer-links">
+          <a href="index.html"><i class="ri-arrow-right-s-line"></i> Home</a>
+          <a href="pages/home2.html"><i class="ri-arrow-right-s-line"></i> Home 2</a>
+          <a href="pages/portfolio.html"><i class="ri-arrow-right-s-line"></i> Portfolio</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Services</a>
+          <a href="pages/blog.html"><i class="ri-arrow-right-s-line"></i> Blog</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <nav class="footer-links">
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Character Modeling</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> PBR Texturing</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Rigging</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> LOD Generation</a>
+          <a href="pages/dashboard.html"><i class="ri-arrow-right-s-line"></i> Studio Dashboard</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-links">
+          <a href="mailto:hello@modelergame.com"><i class="ri-mail-line"></i> hello@modelergame.com</a>
+          <a href="#"><i class="ri-time-line"></i> Available Mon–Fri</a>
+          <a href="#"><i class="ri-global-line"></i> Remote Worldwide</a>
+          <a href="pages/contact.html"><i class="ri-send-plane-line"></i> Start a Project</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Modeler Game. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+<script>
+document.querySelectorAll('.f-btn').forEach(btn=>{btn.addEventListener('click',function(){document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active');});});
+</script>
+</body></html>

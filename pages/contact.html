@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact | Modeler Game — Start a Project</title>
+  <meta name="description" content="Start a 3D character project. Send your concept art, brief and poly budget. I respond within 24 hours with a detailed quote."/>
+  <!-- Times New Roman is a system font -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg"/>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <style>
+    .contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:var(--s6);align-items:start;}
+    .contact-info-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:var(--s2);margin-bottom:var(--s3);}
+    .info-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3);padding:var(--s3) var(--s4);display:flex;align-items:center;gap:var(--s2);transition:var(--transition);height:100%;margin-bottom:0 !important;}
+    .info-card:hover{border-color:var(--c-cyan);box-shadow:var(--glow-cyan-sm);}
+    .info-icon{width:44px;height:44px;border-radius:var(--r1);background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--c-cyan);flex-shrink:0;}
+    .info-label{font-family:var(--f-ui);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-text3);margin-bottom:2px;}
+    .info-val{font-size:.875rem;color:var(--c-text);font-weight:600;}
+    
+    .contact-bottom-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:var(--s6);margin-top:var(--s6);align-items:stretch;}
+    .faq-item{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r2);overflow:hidden;margin-bottom:8px;}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:var(--s2) var(--s3);cursor:pointer;font-weight:600;font-size:.875rem;}
+    .faq-q i{color:var(--c-cyan);transition:transform .25s;flex-shrink:0;}
+    .faq-a{padding:0 var(--s3) var(--s2);color:var(--c-text2);font-size:.85rem;line-height:1.7;display:none;}
+    .faq-item.open .faq-a{display:block;}
+    .faq-item.open .faq-q i{transform:rotate(45deg);}
+    
+    @media(max-width:1024px){
+      .contact-grid{grid-template-columns:1fr;}
+      .contact-bottom-grid{grid-template-columns:1fr;margin-top:var(--s4);}
+    }
+    @media(max-width:600px){
+      .contact-info-grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+<header id="header" role="banner"><div class="container"><div class="header-inner">
+  <a href="../index.html" class="header-logo"><div class="logo-mark">MG</div><div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div></a>
+  <nav class="header-nav" role="navigation"><a href="../index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="services.html" class="nav-link">Services</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link active">Contact</a><a href="dashboard.html" class="nav-link">Dashboard</a></nav>
+  <div class="header-controls"><button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button><button class="icon-btn" data-theme-toggle aria-label="Theme"><i class="ri-sun-line"></i></button><a href="login.html" class="btn btn-outline btn-sm">Login</a></div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div></div></header>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="../index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="services.html" class="nav-link">Services</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link active">Contact</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="login.html" class="nav-link">Login</a>
+  <div class="mobile-nav-controls"><button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button><button class="icon-btn" data-theme-toggle aria-label="Theme"><i class="ri-sun-line"></i></button></div>
+</div>
+
+<main class="page-content">
+  <section class="page-hero"><div class="page-hero-grid"></div><div class="container"><span class="sec-tag" style="justify-content:center;margin-bottom:var(--s2)">Let's Build</span><h1>Start a Project</h1><p>Send your concept art and brief. I'll respond with a detailed quote within 24 hours.</p><nav class="breadcrumb" aria-label="Breadcrumb"></nav></div></section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+      <!-- Left Column: Send Message Card -->
+      <div class="reveal" style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3);padding:var(--s5);box-shadow:var(--shadow-lg), var(--glow-cyan);align-self:start;">
+        <div style="text-align:center;margin-bottom:var(--s3);">
+          <h3 style="margin-bottom:8px;font-family:var(--f-head);color:var(--c-cyan);text-align:center;">Send a Message</h3>
+          <p style="color:var(--c-text2);font-size:.875rem;max-width:480px;margin:0 auto;">Have a question, collaboration proposal, or project inquiry? Drop me a line below and I'll get back to you within 24 hours.</p>
+        </div>
+        <form data-v novalidate id="contact-form">
+          <div class="form-group">
+            <label for="m-name">Name <span style="color:var(--c-red)">*</span></label>
+            <input type="text" id="m-name" class="form-ctrl" placeholder="" data-r="required" required/>
+            <span class="form-err" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="m-email">Email <span style="color:var(--c-red)">*</span></label>
+            <input type="email" id="m-email" class="form-ctrl" placeholder="" data-r="required,email" required/>
+            <span class="form-err" role="alert"></span>
+          </div>
+          <div class="form-group">
+            <label for="m-subject">Subject</label>
+            <input type="text" id="m-subject" class="form-ctrl" placeholder=""/>
+          </div>
+          <div class="form-group">
+            <label for="m-msg">Message <span style="color:var(--c-red)">*</span></label>
+            <textarea id="m-msg" class="form-ctrl" placeholder="What's on your mind? Tell me about your character ideas or project specifications..." data-r="required" required style="min-height:180px"></textarea>
+            <span class="form-err" role="alert"></span>
+          </div>
+          <button type="submit" class="btn btn-cyan btn-full btn-lg" style="margin-top:var(--s2)"><i class="ri-send-plane-2-line"></i> Send Message</button>
+        </form>
+      </div>
+
+      <!-- Right Column: Info Cards Grid, Social Cards, and Map -->
+      <div style="display:flex;flex-direction:column;gap:var(--s4);">
+        <!-- 2x2 Info Cards Grid -->
+        <div class="contact-info-grid">
+          <div class="info-card reveal"><div class="info-icon"><i class="ri-mail-line"></i></div><div><div class="info-label">Email</div><div class="info-val">hello@modelergame.com</div></div></div>
+          <div class="info-card reveal"><div class="info-icon"><i class="ri-time-line"></i></div><div><div class="info-label">Response Time</div><div class="info-val">Within 24 hours</div></div></div>
+          <div class="info-card reveal"><div class="info-icon"><i class="ri-global-line"></i></div><div><div class="info-label">Availability</div><div class="info-val">Remote · Worldwide</div></div></div>
+          <div class="info-card reveal"><div class="info-icon"><i class="ri-calendar-check-line"></i></div><div><div class="info-label">Current Status</div><div class="info-val" style="color:var(--c-green)">✦ Available for Projects</div></div></div>
+        </div>
+
+        <!-- Social -->
+        <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3);padding:var(--s3) var(--s4);text-align:center;" class="reveal">
+          <div class="ui-label" style="color:var(--c-text3);margin-bottom:var(--s2);text-align:center;">Find Me Online</div>
+          <div style="display:flex;gap:8px;justify-content:center;">
+            <a href="#" class="soc-btn" aria-label="Apple"><i class="ri-apple-line"></i></a>
+            <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+            <a href="#" class="soc-btn" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+            <a href="#" class="soc-btn" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+          </div>
+        </div>
+
+        <!-- Work Map Card -->
+        <div style="background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r3);overflow:hidden;" class="reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15553.15940!2d80.2707!3d13.0827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
+            width="100%"
+            height="240"
+            style="border:0;display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Remote Studio Location"
+          ></iframe>
+          <div style="padding:12px 16px;display:flex;align-items:center;gap:8px;">
+            <i class="ri-map-pin-line" style="color:var(--c-cyan);font-size:1rem;"></i>
+            <span style="font-family:var(--f-ui);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c-text3);">Remote Studio · Global</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Centered FAQ (Quick Answers) Section -->
+    <div style="margin-top:var(--s8);max-width:800px;margin-left:auto;margin-right:auto;">
+      <div style="text-align:center;margin-bottom:var(--s4);">
+        <div class="ui-label" style="color:var(--c-text3);margin-bottom:var(--s1);text-align:center;display:block;">FAQ</div>
+        <h2 style="font-family:var(--f-head);color:var(--c-cyan);text-align:center;font-size:1.8rem;letter-spacing:0.02em;">Quick Answers</h2>
+        <div style="width:50px;height:2px;background:var(--c-cyan);margin:var(--s2) auto 0;"></div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What files should I send? <i class="ri-add-line"></i></div>
+        <div class="faq-a">Concept art (PNG/PSD/PDF), reference images, any technical brief (poly budget, engine, LOD requirements). The more detail, the better the quote.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long does a character take? <i class="ri-add-line"></i></div>
+        <div class="faq-a">A typical Professional package takes 3–4 weeks. Rush delivery is available for +40%. I'll give you an exact timeline in the quote.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do you work with NDA agreements? <i class="ri-add-line"></i></div>
+        <div class="faq-a">Yes, I sign NDAs before starting any project. All work is confidential until you choose to publish it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What payment methods do you accept? <i class="ri-add-line"></i></div>
+        <div class="faq-a">50% deposit upfront, 50% on delivery. I accept bank transfer, PayPal and Stripe. Milestone payments available for Studio packages.</div>
+      </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:var(--s2)">
+          <div class="logo-mark">MG</div>
+          <div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div>
+        </div>
+        <p>Freelance 3D character modeler specializing in game-ready assets. Available for AAA, indie and mobile projects worldwide.</p>
+        <div class="footer-social" style="margin-top:var(--s3)">
+          <a href="#" class="soc-btn" aria-label="Apple"><i class="ri-apple-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <nav class="footer-links">
+          <a href="index.html"><i class="ri-arrow-right-s-line"></i> Home</a>
+          <a href="pages/home2.html"><i class="ri-arrow-right-s-line"></i> Home 2</a>
+          <a href="pages/portfolio.html"><i class="ri-arrow-right-s-line"></i> Portfolio</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Services</a>
+          <a href="pages/blog.html"><i class="ri-arrow-right-s-line"></i> Blog</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <nav class="footer-links">
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Character Modeling</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> PBR Texturing</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Rigging</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> LOD Generation</a>
+          <a href="pages/dashboard.html"><i class="ri-arrow-right-s-line"></i> Studio Dashboard</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-links">
+          <a href="mailto:hello@modelergame.com"><i class="ri-mail-line"></i> hello@modelergame.com</a>
+          <a href="#"><i class="ri-time-line"></i> Available Mon–Fri</a>
+          <a href="#"><i class="ri-global-line"></i> Remote Worldwide</a>
+          <a href="pages/contact.html"><i class="ri-send-plane-line"></i> Start a Project</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Modeler Game. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+
+</body></html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Services & Pricing | Modeler Game</title>
+  <meta name="description" content="3D character modeling services: full pipeline from sculpt to delivery, PBR texturing, rigging, LOD generation. Transparent pricing for studios of all sizes."/>
+  <!-- Times New Roman is a system font -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg"/>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+  <style>
+    .service-detail{display:grid;grid-template-columns:1fr 1.4fr;gap:var(--s6);align-items:center;margin-bottom:var(--s8);}
+    .service-detail.reverse{grid-template-columns:1.4fr 1fr;}
+    .service-vis{
+      background:var(--c-surface);
+      border:1px solid var(--c-border);
+      border-radius:var(--r3);
+      width:100% !important;
+      height:340px !important;
+      aspect-ratio:4/3 !important;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .service-vis::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:28px 28px;}
+    .service-vis img{
+      width:100% !important;
+      height:100% !important;
+      object-fit:cover !important;
+    }
+    .add-on-card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r2);padding:var(--s3);display:flex;align-items:flex-start;gap:var(--s2);transition:var(--transition);}
+    .add-on-card:hover{border-color:var(--c-cyan);}
+    .add-on-icon{width:40px;height:40px;border-radius:var(--r1);background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--c-cyan);flex-shrink:0;}
+    .add-on-price{font-family:var(--f-head);font-size:1.1rem;font-weight:800;color:var(--c-cyan);margin-top:4px;}
+    @media(max-width:768px){
+      .service-detail,.service-detail.reverse{grid-template-columns:1fr !important;}
+      .service-vis{order:-1 !important; height:280px !important;}
+    }
+  </style>
+</head>
+<body>
+<header id="header" role="banner"><div class="container"><div class="header-inner">
+  <a href="../index.html" class="header-logo"><div class="logo-mark">MG</div><div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div></a>
+  <nav class="header-nav" role="navigation"><a href="../index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="services.html" class="nav-link active">Services</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link">Contact</a><a href="dashboard.html" class="nav-link">Dashboard</a></nav>
+  <div class="header-controls"><button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button><button class="icon-btn" data-theme-toggle aria-label="Theme"><i class="ri-sun-line"></i></button><a href="login.html" class="btn btn-outline btn-sm">Login</a></div>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div></div></header>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="../index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="portfolio.html" class="nav-link">Portfolio</a><a href="services.html" class="nav-link active">Services</a><a href="blog.html" class="nav-link">Blog</a><a href="contact.html" class="nav-link">Contact</a><a href="dashboard.html" class="nav-link">Dashboard</a><a href="login.html" class="nav-link">Login</a>
+  <div class="mobile-nav-controls"><button class="icon-btn" data-rtl-toggle aria-label="RTL" style="font-family:var(--f-ui);font-size:0.65rem;font-weight:900;letter-spacing:0.02em;">RTL</button><button class="icon-btn" data-theme-toggle aria-label="Theme"><i class="ri-sun-line"></i></button></div>
+</div>
+
+<main class="page-content">
+  <section class="page-hero"><div class="page-hero-grid"></div><div class="container"><span class="sec-tag" style="justify-content:center;margin-bottom:var(--s2)">What I Offer</span><h1>Services & Pricing</h1><p>Full-pipeline 3D character production for game studios of every size. Transparent pricing, no hidden fees.</p><nav class="breadcrumb" aria-label="Breadcrumb"></nav></div></section>
+
+  <!-- SERVICE DETAILS -->
+  <section class="section"><div class="container">
+    <div class="sec-head reveal"><div class="sec-tag">Core Services</div><h2>The Full Pipeline</h2><div class="cyan-line"></div></div>
+
+    <!-- SERVICE 1: Text Left, Image Right -->
+    <div class="service-detail reverse reveal">
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="sec-tag">Service 01</div>
+        <h2 style="font-size:1.8rem;margin-bottom:var(--s2);text-align:center;">Character Modeling & Topology</h2>
+        <p style="margin-bottom:var(--s3);text-align:center;max-width:540px;">From your concept art to a clean game-ready mesh. I build the high-poly sculpt in ZBrush, then retopologize by hand for perfect edge loops. Every mesh is reviewed and approved through the dashboard before texturing begins.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s1);margin-bottom:var(--s4);max-width:440px;width:100%;text-align:left;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>ZBrush high-poly sculpt</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Hand retopology</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Clean quad mesh</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Poly-count report</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Dashboard wireframe review</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>FBX / GLTF / OBJ export</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:var(--s3)"><a href="contact.html" class="btn btn-cyan">Get a Quote</a><span style="font-family:var(--f-head);font-size:1.4rem;font-weight:800;color:var(--c-cyan)">From $800</span></div>
+      </div>
+      <div class="service-vis" style="padding: 0; border: none; box-shadow: var(--shadow-lg);">
+        <img src="character_modeling_3d_1778327631668.png" alt="Character Modeling" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent, rgba(0,229,255,0.1));"></div>
+      </div>
+    </div>
+
+    <!-- SERVICE 2: Image Left, Text Right -->
+    <div class="service-detail reveal">
+      <div class="service-vis" style="padding: 0; border: none; box-shadow: var(--shadow-lg);">
+        <img src="pbr_texturing_maps_1778327855218.png" alt="PBR Texturing" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent, rgba(157,80,255,0.1));"></div>
+      </div>
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="sec-tag">Service 02</div>
+        <h2 style="font-size:1.8rem;margin-bottom:var(--s2);text-align:center;">PBR Texturing & Material Setup</h2>
+        <p style="margin-bottom:var(--s3);text-align:center;max-width:540px;">Physically-based textures baked from the high-poly and hand-painted in Substance 3D Painter. Delivered as a complete PBR set — albedo, normal, ORM channel pack and optional emissive — rendered and approved in Marmoset Toolbag.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s1);margin-bottom:var(--s4);max-width:440px;width:100%;text-align:left;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Normal map baking</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Full PBR texture set</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>ORM channel pack</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Marmoset renders</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>2K / 4K / 8K options</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>DX & OGL normal variants</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:var(--s3)"><a href="contact.html" class="btn btn-cyan">Get a Quote</a><span style="font-family:var(--f-head);font-size:1.4rem;font-weight:800;color:var(--c-cyan)">From $600</span></div>
+      </div>
+    </div>
+
+    <!-- SERVICE 3: Text Left, Image Right -->
+    <div class="service-detail reverse reveal">
+      <div style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="sec-tag">Service 03</div>
+        <h2 style="font-size:1.8rem;margin-bottom:var(--s2);text-align:center;">Rigging & Skinning</h2>
+        <p style="margin-bottom:var(--s3);text-align:center;max-width:540px;">Game-ready skeleton setup with clean joint hierarchy, precise weight painting and optional facial blend shapes. Compatible with Unity Mecanim, Unreal Mannequin standard and Godot's Skeleton3D system.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s1);margin-bottom:var(--s4);max-width:440px;width:100%;text-align:left;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Full biped skeleton</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Clean weight painting</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Facial blend shapes</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Unity / UE5 / Godot ready</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Motion-capture compatible</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:.875rem"><i class="ri-check-line" style="color:var(--c-cyan)"></i>Dashboard rig approval</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:var(--s3)"><a href="contact.html" class="btn btn-cyan">Get a Quote</a><span style="font-family:var(--f-head);font-size:1.4rem;font-weight:800;color:var(--c-cyan)">From $500</span></div>
+      </div>
+      <div class="service-vis" style="padding: 0; border: none; box-shadow: var(--shadow-lg);">
+        <img src="character_rigging_skeleton_1778327906873.png" alt="Rigging & Skinning" style="width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent, rgba(0,255,133,0.1));"></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- PRICING CARDS -->
+  <section class="section bg2"><div class="container">
+    <div class="sec-head reveal"><div class="sec-tag">Packages</div><h2>Choose Your Tier</h2><div class="cyan-line"></div><p>All packages include dashboard access and structured revision rounds. Custom quotes available for bulk orders.</p></div>
+    <div class="grid g3 reveal">
+      <div class="price-card">
+        <div class="ui-label" style="color:var(--c-text3);margin-bottom:var(--s1)">Starter</div>
+        <h3>Basic Character</h3>
+        <div class="price-num">$800<sub>/asset</sub></div>
+        <p style="font-size:.875rem;color:var(--c-text3)">Perfect for indie developers needing clean game-ready meshes without the full pipeline.</p>
+        <ul class="price-features">
+          <li><i class="ri-check-line"></i>Retopology only (no sculpt)</li>
+          <li><i class="ri-check-line"></i>UV unwrap included</li>
+          <li><i class="ri-check-line"></i>2K PBR texture set</li>
+          <li><i class="ri-check-line"></i>LOD0 only</li>
+          <li><i class="ri-check-line"></i>FBX export</li>
+          <li><i class="ri-check-line"></i>2 revision rounds</li>
+          <li class="muted"><i class="ri-close-line"></i>Rigging / skinning</li>
+          <li class="muted"><i class="ri-close-line"></i>Dashboard access</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline btn-full" style="margin-top:auto">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="ui-label" style="color:var(--c-cyan);margin-bottom:var(--s1)">Professional</div>
+        <h3>Full Pipeline</h3>
+        <div class="price-num">$2,400<sub>/asset</sub></div>
+        <p style="font-size:.875rem;color:var(--c-text3)">Complete high-to-low pipeline with rigging, 4K textures and LOD chain. Studio-standard delivery.</p>
+        <ul class="price-features">
+          <li><i class="ri-check-line"></i>ZBrush high-poly sculpt</li>
+          <li><i class="ri-check-line"></i>Hand retopology</li>
+          <li><i class="ri-check-line"></i>4K full PBR set</li>
+          <li><i class="ri-check-line"></i>Full rig + weight paint</li>
+          <li><i class="ri-check-line"></i>LOD0–LOD2 chain</li>
+          <li><i class="ri-check-line"></i>Dashboard access</li>
+          <li><i class="ri-check-line"></i>3 revision rounds</li>
+          <li><i class="ri-check-line"></i>FBX + GLTF export</li>
+        </ul>
+        <a href="contact.html" class="btn btn-cyan btn-full" style="margin-top:auto">Get Started</a>
+      </div>
+      <div class="price-card">
+        <div class="ui-label" style="color:var(--c-text3);margin-bottom:var(--s1)">Studio</div>
+        <h3>Enterprise Pack</h3>
+        <div class="price-num" style="font-size:2rem">Custom</div>
+        <p style="font-size:.875rem;color:var(--c-text3)">Bulk orders, dedicated pipeline, recurring studio contract. Best for teams needing 10+ characters.</p>
+        <ul class="price-features">
+          <li><i class="ri-check-line"></i>Everything in Professional</li>
+          <li><i class="ri-check-line"></i>8K texture option</li>
+          <li><i class="ri-check-line"></i>LOD0–LOD3 chain</li>
+          <li><i class="ri-check-line"></i>Facial blend shapes</li>
+          <li><i class="ri-check-line"></i>5 revision rounds</li>
+          <li><i class="ri-check-line"></i>Source files (ZBrush / Maya)</li>
+          <li><i class="ri-check-line"></i>Priority delivery</li>
+          <li><i class="ri-check-line"></i>Dedicated account manager</li>
+        </ul>
+        <a href="contact.html" class="btn btn-violet btn-full" style="margin-top:auto">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Add-ons -->
+    <div style="margin-top:var(--s8)" class="reveal">
+      <div class="sec-head" style="margin-bottom:var(--s4)"><div class="sec-tag">Optional Add-Ons</div><h3>Extend Your Package</h3></div>
+      <div class="grid g4">
+        <div class="add-on-card"><div class="add-on-icon"><i class="ri-flashlight-line"></i></div><div><div style="font-weight:700;font-size:.9rem;margin-bottom:4px">Rush Delivery</div><p style="font-size:.8rem">50% faster turnaround on any asset.</p><div class="add-on-price">+40%</div></div></div>
+        <div class="add-on-card"><div class="add-on-icon"><i class="ri-stack-line"></i></div><div><div style="font-weight:700;font-size:.9rem;margin-bottom:4px">Extra LOD Level</div><p style="font-size:.8rem">Add one additional LOD to your chain.</p><div class="add-on-price">+$180</div></div></div>
+        <div class="add-on-card"><div class="add-on-icon"><i class="ri-emotion-line"></i></div><div><div style="font-weight:700;font-size:.9rem;margin-bottom:4px">Facial Blend Shapes</div><p style="font-size:.8rem">52-point facial rig morph targets.</p><div class="add-on-price">+$320</div></div></div>
+        <div class="add-on-card"><div class="add-on-icon"><i class="ri-file-copy-2-line"></i></div><div><div style="font-weight:700;font-size:.9rem;margin-bottom:4px">Source File Access</div><p style="font-size:.8rem">ZBrush, Maya and Painter project files.</p><div class="add-on-price">+$250</div></div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- CTA -->
+  <section class="section"><div class="container"><div style="background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(139,92,246,0.08));border:1px solid var(--c-border);border-radius:var(--r3);padding:var(--s6);text-align:center;" class="reveal">
+    <div class="sec-tag" style="justify-content:center;margin-bottom:var(--s2)">Let's Build</div>
+    <h2 style="margin-bottom:var(--s2)">Ready to Start Your Character?</h2>
+    <p style="max-width:500px;margin:0 auto var(--s5)">Send me your concept art and project brief. I'll respond with a detailed quote within 24 hours.</p>
+    <a href="contact.html" class="btn btn-cyan btn-lg"><i class="ri-send-plane-2-line"></i> Request a Quote</a>
+  </div></div></section>
+</main>
+
+<footer id="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:var(--s2)">
+          <div class="logo-mark">MG</div>
+          <div class="logo-text-wrap"><span class="logo-name">Modeler Game</span></div>
+        </div>
+        <p>Freelance 3D character modeler specializing in game-ready assets. Available for AAA, indie and mobile projects worldwide.</p>
+        <div class="footer-social" style="margin-top:var(--s3)">
+          <a href="#" class="soc-btn" aria-label="Apple"><i class="ri-apple-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+          <a href="#" class="soc-btn" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <nav class="footer-links">
+          <a href="index.html"><i class="ri-arrow-right-s-line"></i> Home</a>
+          <a href="pages/home2.html"><i class="ri-arrow-right-s-line"></i> Home 2</a>
+          <a href="pages/portfolio.html"><i class="ri-arrow-right-s-line"></i> Portfolio</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Services</a>
+          <a href="pages/blog.html"><i class="ri-arrow-right-s-line"></i> Blog</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <nav class="footer-links">
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Character Modeling</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> PBR Texturing</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> Rigging</a>
+          <a href="pages/services.html"><i class="ri-arrow-right-s-line"></i> LOD Generation</a>
+          <a href="pages/dashboard.html"><i class="ri-arrow-right-s-line"></i> Studio Dashboard</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-links">
+          <a href="mailto:hello@modelergame.com"><i class="ri-mail-line"></i> hello@modelergame.com</a>
+          <a href="#"><i class="ri-time-line"></i> Available Mon–Fri</a>
+          <a href="#"><i class="ri-global-line"></i> Remote Worldwide</a>
+          <a href="pages/contact.html"><i class="ri-send-plane-line"></i> Start a Project</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Modeler Game. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
+</body></html>

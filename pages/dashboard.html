@@ -181,6 +181,168 @@
       .dash-tex-grid{grid-template-columns:repeat(2,1fr) !important;}
       .dash-stats-grid{grid-template-columns:1fr !important;}
     }
+
+    /* Revision Input Attachment Styles */
+    .rev-input-container {
+      display: flex;
+      gap: 10px;
+      margin-top: var(--s3);
+      align-items: stretch;
+      width: 100%;
+    }
+    .rev-input-box-wrap {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+    .rev-attach-btn {
+      position: absolute;
+      left: 10px;
+      background: transparent;
+      border: none;
+      color: var(--c-text3);
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--r1);
+      transition: var(--transition);
+      z-index: 5;
+    }
+    .rev-attach-btn:hover {
+      color: var(--c-cyan);
+      background: rgba(0, 212, 255, 0.08);
+    }
+    .rev-attach-btn.has-files {
+      color: var(--c-cyan);
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      animation: pulse-cyan 2s infinite;
+    }
+    .rev-input-field {
+      padding-left: 50px !important; /* Make sure text doesn't overlap the attachment icon */
+      width: 100%;
+    }
+    .rev-send-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .rev-attachments-preview {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: var(--s3);
+      margin-bottom: var(--s2);
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.01);
+      border-radius: var(--r2);
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+      width: 100%;
+    }
+    [data-theme="light"] .rev-attachments-preview {
+      background: rgba(0, 0, 0, 0.01);
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+    .file-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      color: var(--c-cyan);
+      padding: 4px 10px;
+      border-radius: var(--r2);
+      font-size: 0.75rem;
+      font-family: var(--f-ui);
+      font-weight: 600;
+      animation: fadeIn .2s ease;
+    }
+    .file-chip i.file-icon {
+      font-size: 0.9rem;
+    }
+    .file-chip button.remove-file-btn {
+      background: transparent;
+      border: none;
+      color: var(--c-text3);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px;
+      font-size: 0.85rem;
+      border-radius: 50%;
+      transition: var(--transition);
+      margin-left: 2px;
+    }
+    .file-chip button.remove-file-btn:hover {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--c-red);
+    }
+    .rev-bubble-attachments {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="light"] .rev-bubble-attachments {
+      border-top-color: rgba(0, 0, 0, 0.08);
+    }
+    .bubble-attachment-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      color: var(--c-cyan);
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      padding: 2px 8px;
+      border-radius: var(--r1);
+      font-family: var(--f-ui);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    @keyframes pulse-cyan {
+      0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
+      70% { box-shadow: 0 0 0 6px rgba(0, 212, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(2px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @media (max-width: 480px) {
+      .rev-input-container {
+        gap: 6px;
+      }
+      .rev-input-field {
+        font-size: 0.8rem;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 42px !important;
+      }
+      .rev-attach-btn {
+        left: 6px;
+        width: 30px;
+        height: 30px;
+        font-size: 1.1rem;
+      }
+      .send-btn-text {
+        display: none !important;
+      }
+      .rev-send-btn {
+        padding: 8px 12px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -375,9 +537,25 @@
       <div class="rev-msg"><div class="rev-av">JL</div><div class="rev-bubble"><div class="rev-meta">James Lim (Studio) · Nov 22, 2024 · 10:14 AM</div>The head proportions look great but the shoulder geometry needs a bit more width — roughly 5% wider. Also the neck loops could use one more edge ring to support the turn animation better.</div></div>
       <div class="rev-msg" style="flex-direction:row-reverse"><div class="rev-av mod">MG</div><div class="rev-bubble mod-bubble"><div class="rev-meta" style="text-align:right">Alex Morgan (Modeler) · Nov 22, 2024 · 2:48 PM</div>Got it — I'll widen the shoulders by ~5% and add the extra neck loop. Should have the updated wireframe uploaded by tomorrow EOD. No revision round used since this is within the original scope.</div></div>
       <div class="rev-msg"><div class="rev-av">JL</div><div class="rev-bubble"><div class="rev-meta">James Lim (Studio) · Nov 23, 2024 · 9:30 AM</div>Perfect, that sounds great. One more thing — can you also double-check the knee area deformation loops? We had issues on the last character with bent leg artefacts.</div></div>
-      <div style="display:flex;gap:10px;margin-top:var(--s3)">
-        <input type="text" class="form-ctrl" placeholder="Add to revision thread..." style="flex:1"/>
-        <button class="btn btn-cyan btn-sm"><i class="ri-send-plane-2-line"></i> Send</button>
+      <!-- Revision Attachment Preview Container -->
+      <div class="rev-attachments-preview" id="rev-attachments-preview" style="display: none;"></div>
+
+      <!-- Revision Input Container -->
+      <div class="rev-input-container">
+        <!-- Hidden file input -->
+        <input type="file" id="rev-file-input" style="display: none;" multiple accept="image/*,application/pdf,.zip,.obj,.fbx,.gltf,.glb" />
+        
+        <div class="rev-input-box-wrap">
+          <!-- Attachment button positioned inside the input box -->
+          <button type="button" class="rev-attach-btn" id="rev-attach-btn" title="Attach files (Concept art, 3D models, ZIP, PDF)" aria-label="Attach files">
+            <i class="ri-attachment-line"></i>
+          </button>
+          <input type="text" id="rev-text-input" class="form-ctrl rev-input-field" placeholder="Add to revision thread..." />
+        </div>
+        
+        <button type="button" id="rev-send-btn" class="btn btn-cyan btn-sm rev-send-btn">
+          <i class="ri-send-plane-2-line"></i> <span class="send-btn-text">Send</span>
+        </button>
       </div>
     </div>
   </div>
@@ -483,5 +661,172 @@
       if(panel)panel.classList.add('active');
     });
   });
+
+  // Revision thread attachments and interactive message posting
+  (function() {
+    const attachBtn = document.getElementById('rev-attach-btn');
+    const fileInput = document.getElementById('rev-file-input');
+    const previewContainer = document.getElementById('rev-attachments-preview');
+    const textInput = document.getElementById('rev-text-input');
+    const sendBtn = document.getElementById('rev-send-btn');
+    const threadContainer = document.querySelector('#revisions > div');
+
+    let attachedFiles = [];
+
+    // Helper to get remixicon class for file extension
+    function getFileIconClass(filename) {
+      const ext = filename.split('.').pop().toLowerCase();
+      if (['png', 'jpg', 'jpeg', 'webp', 'gif', 'svg'].includes(ext)) return 'ri-image-2-line';
+      if (['zip', 'rar', 'tar', 'gz', '7z'].includes(ext)) return 'ri-folder-zip-line';
+      if (['pdf'].includes(ext)) return 'ri-file-pdf-line';
+      if (['obj', 'fbx', 'gltf', 'glb', 'max', 'ma', 'mb', 'blend'].includes(ext)) return 'ri-box-3-line';
+      return 'ri-file-line';
+    }
+
+    // Trigger file selection on attach button click
+    if (attachBtn && fileInput) {
+      attachBtn.addEventListener('click', () => fileInput.click());
+
+      // Handle file selection
+      fileInput.addEventListener('change', function() {
+        const files = Array.from(this.files);
+        files.forEach(file => {
+          // Avoid duplicates
+          if (!attachedFiles.some(f => f.name === file.name && f.size === file.size)) {
+            attachedFiles.push(file);
+          }
+        });
+        updateAttachmentsPreview();
+        fileInput.value = ''; // Reset standard file input to allow selecting same files
+      });
+    }
+
+    // Update the visual files preview area
+    function updateAttachmentsPreview() {
+      if (!previewContainer) return;
+      
+      previewContainer.innerHTML = '';
+      
+      if (attachedFiles.length === 0) {
+        previewContainer.style.display = 'none';
+        attachBtn.classList.remove('has-files');
+        return;
+      }
+
+      previewContainer.style.display = 'flex';
+      attachBtn.classList.add('has-files');
+
+      attachedFiles.forEach((file, index) => {
+        const chip = document.createElement('div');
+        chip.className = 'file-chip';
+        
+        const iconClass = getFileIconClass(file.name);
+        
+        chip.innerHTML = `
+          <i class="file-icon ${iconClass}"></i>
+          <span>${file.name}</span>
+          <button type="button" class="remove-file-btn" data-index="${index}" title="Remove file" aria-label="Remove ${file.name}">
+            <i class="ri-close-line"></i>
+          </button>
+        `;
+        
+        previewContainer.appendChild(chip);
+      });
+
+      // Bind remove buttons
+      previewContainer.querySelectorAll('.remove-file-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const idx = parseInt(this.getAttribute('data-index'), 10);
+          attachedFiles.splice(idx, 1);
+          updateAttachmentsPreview();
+        });
+      });
+    }
+
+    // Post a new message to the thread
+    function postMessage() {
+      if (!textInput || !threadContainer) return;
+
+      const text = textInput.value.trim();
+      if (text === '' && attachedFiles.length === 0) return;
+
+      // Format time
+      const now = new Date();
+      const options = { month: 'short', day: 'numeric', year: 'numeric' };
+      const dateStr = now.toLocaleDateString('en-US', options);
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // hour '0' should be '12'
+      const timeStr = `${hours}:${minutes} ${ampm}`;
+
+      // Create new message node
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'rev-msg';
+      
+      // Let's build the bubble HTML
+      let bubbleHtml = `
+        <div class="rev-bubble">
+          <div class="rev-meta">James Lim (Studio) · ${dateStr} · ${timeStr}</div>
+          <div>${text || 'Uploaded files:'}</div>
+      `;
+
+      // If files are attached, render attachment list inside the message bubble
+      if (attachedFiles.length > 0) {
+        bubbleHtml += `<div class="rev-bubble-attachments">`;
+        attachedFiles.forEach(file => {
+          const iconClass = getFileIconClass(file.name);
+          bubbleHtml += `
+            <div class="bubble-attachment-item">
+              <i class="${iconClass}"></i>
+              <span>${file.name}</span>
+            </div>
+          `;
+        });
+        bubbleHtml += `</div>`;
+      }
+
+      bubbleHtml += `</div>`;
+
+      // Append user avatar and built bubble
+      msgDiv.innerHTML = `
+        <div class="rev-av">JL</div>
+        ${bubbleHtml}
+      `;
+
+      // Insert message before the attachments preview container
+      const targetPreSibling = document.getElementById('rev-attachments-preview');
+      if (targetPreSibling) {
+        threadContainer.insertBefore(msgDiv, targetPreSibling);
+      } else {
+        threadContainer.appendChild(msgDiv);
+      }
+
+      // Smooth scroll the thread container / page to view the new message
+      msgDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Reset fields
+      textInput.value = '';
+      attachedFiles = [];
+      updateAttachmentsPreview();
+    }
+
+    // Trigger post on Send click
+    if (sendBtn) {
+      sendBtn.addEventListener('click', postMessage);
+    }
+
+    // Trigger post on pressing Enter
+    if (textInput) {
+      textInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          postMessage();
+        }
+      });
+    }
+  })();
 </script>
 </body></html>

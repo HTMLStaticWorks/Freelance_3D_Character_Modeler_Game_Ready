@@ -2693,6 +2693,15 @@ textarea.form-ctrl {
 
 [dir="rtl"] .header-logo {
   flex-direction: row-reverse;
+  order: 3;
+}
+
+[dir="rtl"] .header-nav {
+  order: 2;
+}
+
+[dir="rtl"] .header-controls {
+  order: 1;
 }
 
 [dir="rtl"] .header-nav {
@@ -2911,6 +2920,267 @@ textarea.form-ctrl {
 }
 [dir="rtl"] .tl-dur {
   text-align: right;
+}
+
+/* ============================================================
+   26b. COMPREHENSIVE RTL FIXES FOR ALL PAGES
+   ============================================================ */
+
+/* Global layout containers */
+[dir="rtl"] .container {
+  text-align: right;
+}
+
+[dir="rtl"] .page-content {
+  text-align: right;
+}
+
+/* Section headers and content */
+[dir="rtl"] .section {
+  text-align: right;
+}
+
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  text-align: right;
+}
+
+[dir="rtl"] p {
+  text-align: right;
+}
+
+/* Grid layouts */
+[dir="rtl"] .grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .grid-2, [dir="rtl"] .grid-3, [dir="rtl"] .grid-4 {
+  direction: rtl;
+}
+
+/* Hero section */
+[dir="rtl"] .hero {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-content {
+  text-align: right;
+  align-items: flex-end;
+}
+
+[dir="rtl"] .hero-metrics {
+  flex-direction: row-reverse;
+}
+
+/* Cards and features */
+[dir="rtl"] .card {
+  text-align: right;
+}
+
+[dir="rtl"] .card-icon {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir="rtl"] .feature-list {
+  text-align: right;
+}
+
+[dir="rtl"] .feature-list li {
+  text-align: right;
+}
+
+/* About grid */
+[dir="rtl"] .about-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .about-grid .about-text {
+  text-align: right;
+  align-items: flex-end;
+}
+
+[dir="rtl"] .about-grid .about-text p {
+  text-align: right;
+}
+
+[dir="rtl"] .about-grid h2 {
+  text-align: right;
+}
+
+[dir="rtl"] .about-bullets {
+  align-self: flex-end !important;
+}
+
+[dir="rtl"] .about-grid .about-bullet {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* Portfolio grid */
+[dir="rtl"] .portfolio-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .portfolio-item {
+  text-align: right;
+}
+
+/* Services */
+[dir="rtl"] .services-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .service-card {
+  text-align: right;
+}
+
+/* Blog */
+[dir="rtl"] .blog-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .blog-card {
+  text-align: right;
+}
+
+/* Contact */
+[dir="rtl"] .contact-form {
+  text-align: right;
+}
+
+[dir="rtl"] .contact-info {
+  text-align: right;
+}
+
+/* Forms */
+[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+[dir="rtl"] .form-group label {
+  text-align: right;
+}
+
+[dir="rtl"] input, [dir="rtl"] textarea, [dir="rtl"] select {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Buttons */
+[dir="rtl"] .btn {
+  text-align: right;
+}
+
+[dir="rtl"] .btn-group {
+  flex-direction: row-reverse;
+}
+
+/* Lists */
+[dir="rtl"] ul, [dir="rtl"] ol {
+  text-align: right;
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+[dir="rtl"] li {
+  text-align: right;
+}
+
+/* Tables */
+[dir="rtl"] table {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] th, [dir="rtl"] td {
+  text-align: right;
+}
+
+/* Images */
+[dir="rtl"] img {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Navigation */
+[dir="rtl"] .nav-link {
+  text-align: right;
+}
+
+[dir="rtl"] .nav-link.active::after {
+  left: auto;
+  right: 0;
+}
+
+/* Mobile navigation */
+[dir="rtl"] .mobile-nav {
+  right: 0;
+  left: auto;
+  transform: translateX(100%);
+}
+
+[dir="rtl"] .mobile-nav.open {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .mobile-nav .nav-link {
+  text-align: right;
+}
+
+[dir="rtl"] .mobile-nav-controls {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+/* Footer */
+[dir="rtl"] footer {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-column {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-links {
+  align-items: flex-end;
+}
+
+[dir="rtl"] .footer-links a {
+  text-align: right;
+}
+
+/* Responsive RTL fixes */
+@media (max-width: 768px) {
+  [dir="rtl"] .about-grid {
+    grid-template-columns: 1fr;
+    direction: rtl;
+  }
+  
+  [dir="rtl"] .about-grid .about-text {
+    text-align: right;
+    align-items: center;
+  }
+  
+  [dir="rtl"] .hero-content {
+    text-align: center;
+  }
+  
+  [dir="rtl"] .section {
+    text-align: center;
+  }
+  
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 {
+    text-align: center;
+  }
+  
+  [dir="rtl"] p {
+    text-align: center;
+  }
 }
 
 /* ============================================================

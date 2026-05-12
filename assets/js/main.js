@@ -32,7 +32,7 @@ const RTL = {
     document.documentElement.setAttribute('dir', d);
     localStorage.setItem('mg-dir', d);
     document.querySelectorAll('[data-rtl-toggle]').forEach(b => {
-      const i = b.querySelector('i'); if(i) i.className = d==='rtl'?'ri-layout-right-2-line':'ri-layout-left-2-line';
+      b.textContent = d==='rtl'?'RTL':'RTL';
     });
   },
   toggle(){ this.apply((document.documentElement.getAttribute('dir')||'ltr')==='rtl'?'ltr':'rtl'); }

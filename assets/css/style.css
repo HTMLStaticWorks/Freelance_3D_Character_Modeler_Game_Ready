@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 /* ============================================================
    MODELER GAME — MAIN STYLESHEET
    Aesthetic: Dark Cyberpunk · Technical · Game-Ready
@@ -36,9 +38,10 @@
   --c-white: #ffffff;
 
   /* Typography */
-  --f-head: 'Times New Roman', Times, serif;
-  --f-body: 'Times New Roman', Times, serif;
-  --f-ui: 'Times New Roman', Times, serif;
+  --f-h1: 'Playfair Display', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --f-head: 'Inter', system-ui, -apple-system, sans-serif;
+  --f-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --f-ui: 'Inter', system-ui, -apple-system, sans-serif;
 
   /* Spacing */
   --s1: 8px;
@@ -155,6 +158,7 @@ h5 {
 }
 
 h1 {
+  font-family: var(--f-h1);
   font-size: clamp(2.4rem, 6vw, 5rem);
   letter-spacing: -0.03em;
 }
@@ -1944,6 +1948,17 @@ textarea.form-ctrl {
   gap: var(--s2);
 }
 
+/* Prevent footer bottom text from colliding with Back-to-top button on larger screens */
+@media (min-width: 769px) {
+  .footer-bottom {
+    padding-right: 60px !important;
+  }
+  [dir="rtl"] .footer-bottom {
+    padding-right: 0 !important;
+    padding-left: 60px !important;
+  }
+}
+
 .footer-bottom p {
   color: var(--c-text3);
   font-size: 0.78rem;
@@ -2491,6 +2506,13 @@ textarea.form-ctrl {
 
 /* 768px tablet (collapses header navigation into hamburger menu) */
 @media(max-width:768px) {
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: calc(var(--header-h) + var(--s6)) !important;
+    padding-bottom: var(--s8) !important;
+  }
+
   .header-nav {
     display: none;
   }
@@ -2632,6 +2654,13 @@ textarea.form-ctrl {
     --header-h: 64px;
   }
 
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: calc(var(--header-h) + var(--s5)) !important;
+    padding-bottom: var(--s6) !important;
+  }
+
   .hero h1 {
     font-size: 2rem;
   }
@@ -2680,166 +2709,150 @@ textarea.form-ctrl {
 }
 
 /* ============================================================
-   25. RTL SUPPORT
+   25. RTL SUPPORT (CONSOLIDATED & OPTIMIZED)
    ============================================================ */
 [dir="rtl"] {
   direction: rtl;
+  overflow-x: hidden !important;
+}
+
+[dir="rtl"] html,
+[dir="rtl"] body {
+  overflow-x: hidden !important;
   text-align: right;
 }
 
-[dir="rtl"] .header-inner {
-  flex-direction: row-reverse;
+/* Fix inline text alignments across all pages */
+[dir="rtl"] [style*="text-align: left"],
+[dir="rtl"] [style*="text-align:left"] {
+  text-align: right !important;
 }
 
-[dir="rtl"] .header-logo {
-  flex-direction: row-reverse;
-  order: 3;
+/* Mirror the entire background image stack (URL & gradient) beautifully without losing assets */
+[dir="rtl"] .hero-full-bg {
+  transform: scaleX(-1) !important;
+  transform-origin: center !important;
 }
 
-[dir="rtl"] .header-nav {
-  order: 2;
+/* Page-hero container text centering for balanced visual flow */
+[dir="rtl"] .page-hero {
+  text-align: center !important;
 }
 
-[dir="rtl"] .header-controls {
-  order: 1;
+[dir="rtl"] .page-hero .container {
+  text-align: center !important;
 }
 
-[dir="rtl"] .header-nav {
-  left: auto;
-  right: 50%;
-  transform: translateX(50%);
+[dir="rtl"] .page-hero h1,
+[dir="rtl"] .page-hero p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-[dir="rtl"] .header-controls {
-  flex-direction: row-reverse;
+[dir="rtl"] .page-hero .sec-tag {
+  justify-content: center !important;
 }
 
+[dir="rtl"] .page-hero .breadcrumb {
+  justify-content: center !important;
+}
+
+/* Retain centered alignment for elements designed to be centered (Avoid right-edge shove) */
+[dir="rtl"] .sec-head,
+[dir="rtl"] .sec-head h2,
+[dir="rtl"] .sec-head p,
+[dir="rtl"] .sec-head .sec-tag,
+[dir="rtl"] .sec-tag,
+[dir="rtl"] .cyan-line,
+[dir="rtl"] .hero-content,
+[dir="rtl"] .hero h1,
+[dir="rtl"] .hero-sub,
+[dir="rtl"] .hero-cta,
+[dir="rtl"] .hero-metrics,
+[dir="rtl"] .hero-metric,
+[dir="rtl"] .testi-card,
+[dir="rtl"] .testi-text,
+[dir="rtl"] .testi-author,
+[dir="rtl"] .testi-name,
+[dir="rtl"] .testi-role,
+[dir="rtl"] .tc,
+[dir="rtl"] .nl-section,
+[dir="rtl"] .nl-section h2,
+[dir="rtl"] .nl-section p,
+[dir="rtl"] .nl-form,
+[dir="rtl"] .card[style*="text-align:center"],
+[dir="rtl"] .card[style*="text-align: center"],
+[dir="rtl"] .btn-group {
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Table header and data cell matching alignments in RTL */
+[dir="rtl"] th, 
+[dir="rtl"] td {
+  text-align: right !important;
+}
+
+/* Timeline RTL */
 [dir="rtl"] .timeline::before {
   left: auto;
-  right: 28px;
+  right: 27px;
+}
+[dir="rtl"] .tl-content {
+  text-align: right !important;
 }
 
-[dir="rtl"] .tl-item {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .footer-grid {
-  direction: rtl;
-}
-
-[dir="rtl"] .footer-logo {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .footer-bottom {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .auth-page-controls {
-  right: auto;
-  left: var(--s3);
-}
-
-[dir="rtl"] .dash-sidebar {
-  left: auto;
-  right: 0;
-  border-right: none;
-  border-left: 1px solid var(--c-border);
-}
-
-[dir="rtl"] .dash-main {
-  margin-left: 0;
-  margin-right: 260px;
-}
-
-[dir="rtl"] .dash-nav-link.active::before {
-  left: auto;
-  right: 0;
-}
-
+/* Badges absolute positioning in RTL */
 [dir="rtl"] .work-badge {
   left: auto;
   right: 12px;
 }
-
 [dir="rtl"] .poly-badge {
   right: auto;
   left: 12px;
 }
-
 [dir="rtl"] .price-badge {
   right: auto;
   left: 16px;
 }
 
-@media(max-width:1024px) {
-  [dir="rtl"] .dash-main {
-    margin-right: 0;
-  }
+/* Footer icons spacing */
+[dir="rtl"] .footer-links a i {
+  margin-right: 0;
+  margin-left: 8px;
 }
 
-/* ============================================================
-   25b. RTL — EXTENDED COVERAGE
-   ============================================================ */
+/* Mirror the Back-to-top button horizontally in RTL mode */
+[dir="rtl"] button[aria-label="Back to top"] {
+  right: auto !important;
+  left: 24px !important;
+}
 
-/* Body-level text direction */
-[dir="rtl"] body {
+/* FAQ answers bidirectional text adjustments in RTL mode */
+[dir="rtl"] .faq-a {
+  direction: ltr !important;
+  text-align: right !important;
+}
+
+/* Forms RTL */
+[dir="rtl"] input, 
+[dir="rtl"] textarea, 
+[dir="rtl"] select {
   text-align: right;
+  direction: rtl;
 }
 
-/* Paragraphs and list items */
-[dir="rtl"] p,
-[dir="rtl"] li,
-[dir="rtl"] label,
-[dir="rtl"] .form-group label {
-  text-align: right;
+/* Auth page controls RTL */
+[dir="rtl"] .auth-page-controls {
+  right: auto;
+  left: var(--s3);
 }
 
-/* Section tags — reverse the decorative lines */
-[dir="rtl"] .sec-tag {
-  flex-direction: row-reverse;
-}
-
-/* Cards — icon left in RTL becomes right */
-[dir="rtl"] .card-icon {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-/* Hero metrics row */
-[dir="rtl"] .hero-metrics {
-  flex-direction: row-reverse;
-}
-
-/* Mobile navigation drawer — RTL */
-[dir="rtl"] .mobile-nav {
-  text-align: right;
-}
-[dir="rtl"] .mobile-nav .nav-link {
-  text-align: right;
-}
-[dir="rtl"] .mobile-nav-controls {
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-}
-
-/* Footer links column */
-[dir="rtl"] .footer-links {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-[dir="rtl"] .footer-links a {
-  flex-direction: row-reverse;
-}
-
-/* Newsletter form */
-[dir="rtl"] .nl-form {
-  flex-direction: row-reverse;
-}
-
-/* ---- Dashboard-specific RTL ---- */
-/* Dashboard uses .sidebar and .dash-content (different from global .dash-sidebar/.dash-main) */
+/* Dashboard RTL styling */
 [dir="rtl"] .sidebar {
   left: auto;
   right: 0;
@@ -2850,336 +2863,19 @@ textarea.form-ctrl {
   margin-left: 0;
   margin-right: 240px;
 }
-[dir="rtl"] .dash-header-inner {
-  flex-direction: row-reverse;
-}
-[dir="rtl"] .dash-header-left {
-  flex-direction: row-reverse;
-}
-[dir="rtl"] .dash-header-right {
-  flex-direction: row-reverse;
-}
-[dir="rtl"] .dash-nav-link {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-[dir="rtl"] .sidebar-logo {
-  flex-direction: row-reverse;
-}
-[dir="rtl"] .stat-card {
-  text-align: right;
-}
-[dir="rtl"] .pipeline {
-  flex-direction: row-reverse;
-}
-[dir="rtl"] .rev-msg {
-  flex-direction: row-reverse;
-}
-[dir="rtl"] .rev-bubble {
-  border-radius: var(--r2) 0 var(--r2) var(--r2);
-  text-align: right;
-}
-[dir="rtl"] .rev-bubble.mod-bubble {
-  border-radius: 0 var(--r2) var(--r2) var(--r2);
-}
-[dir="rtl"] .asset-row {
-  flex-direction: row-reverse;
-}
-[dir="rtl"] .asset-info {
-  text-align: right;
-}
-[dir="rtl"] .user-chip {
-  flex-direction: row-reverse;
-}
 
 /* Dashboard mobile RTL */
-@media(max-width:768px) {
+@media (max-width: 768px) {
   [dir="rtl"] .sidebar {
-    left: unset;
-    right: 0;
     transform: translateX(100%);
+    right: 0;
+    left: auto;
   }
   [dir="rtl"] .sidebar.open {
     transform: translateX(0);
   }
   [dir="rtl"] .dash-content {
     margin-right: 0;
-  }
-}
-
-/* Auth page controls RTL — already covered, ensure consistency */
-[dir="rtl"] .auth-page-controls {
-  right: auto;
-  left: var(--s3);
-  flex-direction: row-reverse;
-}
-
-/* Timeline RTL */
-[dir="rtl"] .tl-content {
-  text-align: right;
-}
-[dir="rtl"] .tl-dur {
-  text-align: right;
-}
-
-/* ============================================================
-   26b. COMPREHENSIVE RTL FIXES FOR ALL PAGES
-   ============================================================ */
-
-/* Global layout containers */
-[dir="rtl"] .container {
-  text-align: right;
-}
-
-[dir="rtl"] .page-content {
-  text-align: right;
-}
-
-/* Section headers and content */
-[dir="rtl"] .section {
-  text-align: right;
-}
-
-[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
-  text-align: right;
-}
-
-[dir="rtl"] p {
-  text-align: right;
-}
-
-/* Grid layouts */
-[dir="rtl"] .grid {
-  direction: rtl;
-}
-
-[dir="rtl"] .grid-2, [dir="rtl"] .grid-3, [dir="rtl"] .grid-4 {
-  direction: rtl;
-}
-
-/* Hero section */
-[dir="rtl"] .hero {
-  text-align: right;
-}
-
-[dir="rtl"] .hero-content {
-  text-align: right;
-  align-items: flex-end;
-}
-
-[dir="rtl"] .hero-metrics {
-  flex-direction: row-reverse;
-}
-
-/* Cards and features */
-[dir="rtl"] .card {
-  text-align: right;
-}
-
-[dir="rtl"] .card-icon {
-  margin-left: auto;
-  margin-right: 0;
-}
-
-[dir="rtl"] .feature-list {
-  text-align: right;
-}
-
-[dir="rtl"] .feature-list li {
-  text-align: right;
-}
-
-/* About grid */
-[dir="rtl"] .about-grid {
-  direction: rtl;
-}
-
-[dir="rtl"] .about-grid .about-text {
-  text-align: right;
-  align-items: flex-end;
-}
-
-[dir="rtl"] .about-grid .about-text p {
-  text-align: right;
-}
-
-[dir="rtl"] .about-grid h2 {
-  text-align: right;
-}
-
-[dir="rtl"] .about-bullets {
-  align-self: flex-end !important;
-}
-
-[dir="rtl"] .about-grid .about-bullet {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
-/* Portfolio grid */
-[dir="rtl"] .portfolio-grid {
-  direction: rtl;
-}
-
-[dir="rtl"] .portfolio-item {
-  text-align: right;
-}
-
-/* Services */
-[dir="rtl"] .services-grid {
-  direction: rtl;
-}
-
-[dir="rtl"] .service-card {
-  text-align: right;
-}
-
-/* Blog */
-[dir="rtl"] .blog-grid {
-  direction: rtl;
-}
-
-[dir="rtl"] .blog-card {
-  text-align: right;
-}
-
-/* Contact */
-[dir="rtl"] .contact-form {
-  text-align: right;
-}
-
-[dir="rtl"] .contact-info {
-  text-align: right;
-}
-
-/* Forms */
-[dir="rtl"] .form-group {
-  text-align: right;
-}
-
-[dir="rtl"] .form-group label {
-  text-align: right;
-}
-
-[dir="rtl"] input, [dir="rtl"] textarea, [dir="rtl"] select {
-  text-align: right;
-  direction: rtl;
-}
-
-/* Buttons */
-[dir="rtl"] .btn {
-  text-align: right;
-}
-
-[dir="rtl"] .btn-group {
-  flex-direction: row-reverse;
-}
-
-/* Lists */
-[dir="rtl"] ul, [dir="rtl"] ol {
-  text-align: right;
-  padding-left: 0;
-  padding-right: 20px;
-}
-
-[dir="rtl"] li {
-  text-align: right;
-}
-
-/* Tables */
-[dir="rtl"] table {
-  text-align: right;
-  direction: rtl;
-}
-
-[dir="rtl"] th, [dir="rtl"] td {
-  text-align: right;
-}
-
-/* Images */
-[dir="rtl"] img {
-  display: block;
-  margin-left: auto;
-  margin-right: 0;
-}
-
-/* Navigation */
-[dir="rtl"] .nav-link {
-  text-align: right;
-}
-
-[dir="rtl"] .nav-link.active::after {
-  left: auto;
-  right: 0;
-}
-
-/* Mobile navigation */
-[dir="rtl"] .mobile-nav {
-  right: 0;
-  left: auto;
-  transform: translateX(100%);
-}
-
-[dir="rtl"] .mobile-nav.open {
-  transform: translateX(0);
-}
-
-[dir="rtl"] .mobile-nav .nav-link {
-  text-align: right;
-}
-
-[dir="rtl"] .mobile-nav-controls {
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-}
-
-/* Footer */
-[dir="rtl"] footer {
-  text-align: right;
-}
-
-[dir="rtl"] .footer-grid {
-  direction: rtl;
-}
-
-[dir="rtl"] .footer-column {
-  text-align: right;
-}
-
-[dir="rtl"] .footer-links {
-  align-items: flex-end;
-}
-
-[dir="rtl"] .footer-links a {
-  text-align: right;
-}
-
-/* Responsive RTL fixes */
-@media (max-width: 768px) {
-  [dir="rtl"] .about-grid {
-    grid-template-columns: 1fr;
-    direction: rtl;
-  }
-  
-  [dir="rtl"] .about-grid .about-text {
-    text-align: right;
-    align-items: center;
-  }
-  
-  [dir="rtl"] .hero-content {
-    text-align: center;
-  }
-  
-  [dir="rtl"] .section {
-    text-align: center;
-  }
-  
-  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 {
-    text-align: center;
-  }
-  
-  [dir="rtl"] p {
-    text-align: center;
   }
 }
 
@@ -3357,4 +3053,23 @@ svg [fill="var(--c-amber)"] { fill: var(--c-amber) !important; }
 
 .blog-card .read-link {
   justify-content: center !important;
+}
+
+/* 360px mobile optimization for checkbox row and cards */
+@media (max-width: 360px) {
+  .auth-card {
+    padding: var(--s3) !important;
+  }
+  .checkbox-row {
+    gap: 6px !important;
+  }
+  .checkbox-row input[type="checkbox"] {
+    width: 13px !important;
+    height: 13px !important;
+    margin-top: 2px !important;
+  }
+  .checkbox-row label {
+    font-size: 0.72rem !important;
+    white-space: nowrap !important;
+  }
 }

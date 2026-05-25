@@ -14,6 +14,23 @@
     .str-track{height:3px;background:var(--c-border);border-radius:2px;margin-top:6px;overflow:hidden;}
     #strength-bar{height:100%;width:0;border-radius:2px;transition:all .3s;}
     #strength-text{font-family:var(--f-ui);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:4px;color:var(--c-text3);}
+    
+    /* RTL overrides */
+    [dir="rtl"] .pw-eye {
+      right: auto;
+      left: 12px;
+    }
+    [dir="rtl"] .pw-wrap input {
+      padding-right: 12px;
+      padding-left: 46px;
+    }
+    [dir="rtl"] .auth-brand .logo-text-wrap {
+      text-align: right !important;
+    }
+    [dir="rtl"] .auth-foot {
+      direction: ltr !important;
+      text-align: center !important;
+    }
   </style>
 </head>
 <body>
@@ -29,7 +46,7 @@
     <div class="auth-brand">
       <a href="../index.html" style="display:flex;flex-direction:row;align-items:center;gap:14px;text-decoration:none;" aria-label="Back to site">
         <div class="logo-mark" style="width:48px;height:48px;font-size:1.15rem;flex-shrink:0;">MG</div>
-        <div class="logo-text-wrap" style="text-align:left;"><span class="logo-name" style="font-size:1.4rem;">Modeler Game</span></div>
+        <div class="logo-text-wrap"><span class="logo-name" style="font-size:1.4rem;">Modeler Game</span></div>
       </a>
       <div style="margin-top:var(--s2);"><h1 id="reg-title" style="font-size:1.6rem;margin-bottom:4px">Create Studio Account</h1><p style="font-size:.875rem;color:var(--c-text3)">Access the client dashboard &amp; asset pipeline</p></div>
     </div>
@@ -48,8 +65,8 @@
         <div class="pw-wrap"><input type="password" id="rc" class="form-ctrl" placeholder="Repeat your password" data-r="required" required autocomplete="new-password"/><button type="button" class="pw-eye" data-eye="rc" aria-label="Toggle confirm password"><i class="ri-eye-line"></i></button></div>
         <span class="form-err" role="alert"></span>
       </div>
-      <div class="checkbox-row" style="margin-bottom:8px"><input type="checkbox" id="terms" required aria-required="true"/><label for="terms">I agree to the <a href="#" style="color:var(--c-cyan)">Terms of Service</a> and <a href="#" style="color:var(--c-cyan)">Privacy Policy</a> <span style="color:var(--c-red)">*</span></label></div>
-      <div class="checkbox-row" style="margin-bottom:var(--s3)"><input type="checkbox" id="nl-opt"/><label for="nl-opt">Send me project updates and new portfolio releases</label></div>
+      <div class="checkbox-row" style="margin-bottom:8px"><input type="checkbox" id="terms" required aria-required="true"/><label for="terms">I agree to <a href="#" style="color:var(--c-cyan)">Terms of Service</a> and <a href="#" style="color:var(--c-cyan)">Privacy Policy</a> <span style="color:var(--c-red)">*</span></label></div>
+      <div class="checkbox-row" style="margin-bottom:var(--s3)"><input type="checkbox" id="nl-opt"/><label for="nl-opt">Send me project updates</label></div>
       <button type="submit" class="btn btn-cyan btn-full"><i class="ri-user-add-line"></i> Create Account</button>
     </form>
     <div class="auth-divider"><span>or sign up with</span></div>

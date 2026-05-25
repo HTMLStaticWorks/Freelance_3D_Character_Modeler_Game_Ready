@@ -1372,6 +1372,22 @@ p {
   overflow: hidden;
 }
 
+.price-card h3 {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.price-card p {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .price-card::after {
   content: '';
   position: absolute;
@@ -1421,6 +1437,11 @@ p {
   color: var(--c-cyan);
   line-height: 1;
   margin: var(--s2) 0;
+  min-height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .price-num sub {
@@ -1434,6 +1455,7 @@ p {
   gap: 10px;
   margin: var(--s3) 0;
   width: 100%;
+  min-height: 240px;
 }
 
 .price-features li {
@@ -2988,7 +3010,7 @@ textarea.form-ctrl {
   align-items: flex-start !important;
   width: 100% !important;
   max-width: 280px !important;
-  margin: 0 auto !important;
+  margin: var(--s3) auto !important;
   padding: 0 var(--s2) !important;
 }
 

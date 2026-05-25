@@ -12,6 +12,23 @@
     .pw-wrap input{padding-right:46px;}
     .pw-eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--c-text3);cursor:pointer;font-size:1rem;display:flex;align-items:center;transition:var(--transition);}
     .pw-eye:hover{color:var(--c-cyan);}
+    
+    /* RTL overrides */
+    [dir="rtl"] .pw-eye {
+      right: auto;
+      left: 12px;
+    }
+    [dir="rtl"] .pw-wrap input {
+      padding-right: 12px;
+      padding-left: 46px;
+    }
+    [dir="rtl"] .auth-brand .logo-text-wrap {
+      text-align: right !important;
+    }
+    [dir="rtl"] .auth-foot {
+      direction: ltr !important;
+      text-align: center !important;
+    }
   </style>
 </head>
 <body>
@@ -28,7 +45,7 @@
     <div class="auth-brand">
       <a href="../index.html" style="display:flex;flex-direction:row;align-items:center;gap:14px;text-decoration:none;" aria-label="Back to site">
         <div class="logo-mark" style="width:48px;height:48px;font-size:1.15rem;flex-shrink:0;">MG</div>
-        <div class="logo-text-wrap" style="text-align:left;"><span class="logo-name" style="font-size:1.4rem;">Modeler Game</span></div>
+        <div class="logo-text-wrap"><span class="logo-name" style="font-size:1.4rem;">Modeler Game</span></div>
       </a>
       <div style="margin-top:var(--s2);"><h1 id="login-title" style="font-size:1.6rem;margin-bottom:4px">Login</h1><p style="font-size:.875rem;color:var(--c-text3)">Access your client dashboard</p></div>
     </div>
